@@ -1,5 +1,4 @@
 void checkMotion(){
-
   val = digitalRead(pirPin); //read state of the PIR
   
   if (val == HIGH) { //if the value read is high, there was no motion
