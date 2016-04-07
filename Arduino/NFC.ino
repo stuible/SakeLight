@@ -11,6 +11,13 @@ void checkNFC(){
           record.getPayload(payload);
           RFIDid = (payload,payloadLength);
         }
+
+        if(RFIDid >= 0 && RFIDid <= 100){
+          RFIDid = RFIDid;
+        }
+        else {
+          RFIDid = 0;
+        }
       }
   } 
   else{

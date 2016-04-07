@@ -42,6 +42,13 @@ void draw() {
   else{
     text("Everybody chillin", 400, 300);
   }
+  
+  if(RFIDid == 12){
+  text("Welcome Josh", width / 2, 400);
+  }
+  else if(RFIDid == 2){
+  text("Welcome Macguire", width / 2 - 100, 400);
+  }
 
   drawBar(volumeLevel, 100, 100, 50, 100, blue); //volume bar
   drawBar(motionLevel * 2, 400, 100, 50, 100, green); //motion bar
