@@ -1,7 +1,10 @@
-//Josh Stuible is a fuckboy
-
+//Import Libraries
 import processing.serial.*;
+
+//Serial Variables
 Serial myPort;  // Create object from Serial class
+
+//Public Variables
 String val;     // Data received from the serial port
 String myString = null;
 char inBuffer;
