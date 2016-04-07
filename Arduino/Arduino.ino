@@ -1,9 +1,9 @@
 //MOTION
-int pirPin = 3;
-int val;
-int motionLevel;
-int volumeLevel;
-int RFIDid;
+int pirPin = 3; //pin the motion sensor is connected to
+int val; //voltage of the motion sensor pin
+int motionLevel; //current motion level
+int volumeLevel; //current volume level
+int RFIDid; //id of the last rfid tag scanned
 
 
 //NFC
