@@ -1,4 +1,4 @@
-void getSoundInput(){
+void checkSoundInput(){
   long startMillis= millis();  // Start of sample window 
    unsigned int signalMax = 0;
    unsigned int signalMin = 1024;
@@ -21,10 +21,7 @@ void getSoundInput(){
    }
    peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
    double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
-   volumeLevel = peakToPeak;
+   volumeLevel = map(peakToPeak, 0, 700, 0, 100);
 
-   
-  //VOLUME
-  Serial.print(volumeLevel);
-  Serial.print("&");
+  sendSerial(volumeLevel);
 }

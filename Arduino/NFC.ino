@@ -1,5 +1,4 @@
 void checkNFC(){
-    //NFC
   if (nfc.tagPresent()) { // Do an NFC scan to see if an NFC tag is present
       NfcTag tag = nfc.read(); // read the NFC tag
       if(tag.hasNdefMessage()) {
@@ -13,12 +12,10 @@ void checkNFC(){
           RFIDid = (payload,payloadLength);
         }
       }
-  } else {
+  } 
+  else{
     RFIDid = 0;
   }
-  Serial.print(RFIDid);
-  Serial.print("&");
-  
-  Serial.println();
+  sendSerial(RFIDid);
 }
 
