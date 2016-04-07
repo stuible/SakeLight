@@ -15,7 +15,7 @@ void updateLight(){
    pixels.show(); //This sends the updated pixel color to the hardware.
    }
    else {
-     pixels.setPixelColor(i, 0,0,0);
+     pixels.setPixelColor(i, 0,0,0); // turn LED off
    }
   }
 }
