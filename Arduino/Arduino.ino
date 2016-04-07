@@ -41,6 +41,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(13, OUTPUT);
   nfc.begin(); // begin NFC communication
+  pixels.begin(); // initialize the NeoPixel library.
   motionLevel = 0;
   volumeLevel = 50;
   RFIDid = 0;
@@ -55,5 +56,7 @@ void loop() {
 
   checkNFC();
 
-  delay(1000);
+  updateLight();
+
+  delay(10);
 }
