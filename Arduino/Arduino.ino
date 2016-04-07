@@ -44,7 +44,8 @@ void setup() {
 }
 
 void loop() {
-
+  //Serial monitor displays data in the format:
+  //&motionLevel&volumeLevel&RFIDid&
   startSerial();
 
   checkMotion();
