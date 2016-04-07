@@ -12,7 +12,9 @@ boolean motionDetected;
 boolean RFID;
 int volumeLevel;
 int motionLevel;
+int lastVolumeLevel;
 int lastMotionLevel;
+int atmosphere;
 int RFIDid;
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
@@ -22,13 +24,31 @@ void setup () {
   myPort = new Serial(this, portName, 9600); //instantiate port
   size(800, 600);
   textSize(24);
+  atmosphere = 0;
 }
 
 
 void draw() {
   background(255);
-  setSerialValues();  
-
+  
+  lastMotionLevel = motionLevel;
+  lastVolumeLevel = volumeLevel;
+  setSerialValues();
+  
+  if (lastMotionLevel > motionLevel) {
+    atmosphere++;
+  } else if (lastMotionLevel < motionLevel && atmosphere > 0) {
+    atmosphere--;
+  }
+  
+  if (lastVolumeLevel > volumeLevel) {
+    atmosphere++;
+  } else if (lastVolumeLevel < volumeLevel && atmosphere > 0) {
+    atmosphere--;
+  }
+  
+  println("Atmosphere index: " + atmosphere);
+  
   //TEXT
   fill(0);
   text("Gekkeikan", 0, 20);
