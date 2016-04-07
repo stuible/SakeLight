@@ -32,10 +32,12 @@ void setup() {
 
 void loop() {
 
-  getSoundInput();
 
   checkMotion();
 
+  getSoundInput();
+
   checkNFC();
+
   delay(1000);
 }
