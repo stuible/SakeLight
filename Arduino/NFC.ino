@@ -1,5 +1,5 @@
 void checkNFC(){
-  if (nfc.tagPresent()) { // Do an NFC scan to see if an NFC tag is present
+  if (nfc.tagPresent(25)) { // Do an NFC scan to see if an NFC tag is present
       NfcTag tag = nfc.read(); // read the NFC tag
       if(tag.hasNdefMessage()) {
         NdefMessage message = tag.getNdefMessage();

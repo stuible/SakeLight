@@ -10,7 +10,7 @@ void updateLight(){
 
    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
    if (i <= ledOn){
-   pixels.setPixelColor(i, pixels.Color(RedLedAmount,0,50)); //set LED colour
+   pixels.setPixelColor(i, pixels.Color(50,0, 50)); //set LED colour
 
    pixels.show(); //This sends the updated pixel color to the hardware.
    }

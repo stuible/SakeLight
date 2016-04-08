@@ -37,7 +37,7 @@ int RFIDid; //id of the last rfid tag scanned
 void setup() {
   Serial.begin(9600);
   pinMode(13, OUTPUT);
-  nfc.begin(); // begin NFC communication
+  nfc.begin(false); // begin NFC communication
   pixels.begin(); // initialize the NeoPixel library.
   motionLevel = 0;
   RFIDid = 0;
@@ -49,6 +49,7 @@ void loop() {
 
   checkMotion();
   checkSoundInput();
+  //sendSerial(0);
   checkNFC();
   updateLight();
 
