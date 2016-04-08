@@ -35,7 +35,7 @@ int RFIDid; //id of the last rfid tag scanned
 //Light Variables
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600); //begin serial communication at 9600 baud
   pinMode(13, OUTPUT);
   nfc.begin(false); // begin NFC communication
   pixels.begin(); // initialize the NeoPixel library.
@@ -44,16 +44,16 @@ void setup() {
 }
 
 void loop() {
-
+  //Serial monitor displays data in the format:
+  //&motionLevel&volumeLevel&RFIDid&
   startSerial();
 
-  checkMotion();
-  checkSoundInput();
-  //sendSerial(0);
-  checkNFC();
-  updateLight();
+  checkMotion(); //reads the state of the motion sensor
+  checkSoundInput(); //reads the state of the microphone
+  checkNFC(); //reads the state of the NFC sensor
+  updateLight(); //updates the light accordingly
 
-  endSerial();
+  endSerial(); //prints the serial line so processing can recieve it
 
-  delay(10);
+  delay(10); //delay for speed of checks/updates
 }
