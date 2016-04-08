@@ -32,6 +32,20 @@ int motionLevel; //current motion level
 int volumeLevel; //current volume level
 int RFIDid; //id of the last rfid tag scanned
 
+//Atmosphere Variables
+int volumeAtmosphere;
+int motionAtmosphere;
+int PersonalAtmosphere;
+int atmosphereTimer;
+int atmosphereCounter;
+int volumeAverage;
+int motionAverage;
+
+int averagesLength = 60;
+int volumeAverages[60];
+int motionAverages[60];
+
+
 //Light Variables
 
 void setup() {
@@ -51,9 +65,10 @@ void loop() {
   checkMotion(); //reads the state of the motion sensor
   checkSoundInput(); //reads the state of the microphone
   checkNFC(); //reads the state of the NFC sensor
+  updateAtmosphere();
   updateLight(); //updates the light accordingly
 
   endSerial(); //prints the serial line so processing can recieve it
 
-  delay(10); //delay for speed of checks/updates
+  //delay(10); //delay for speed of checks/updates
 }
