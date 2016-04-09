@@ -8,6 +8,7 @@ Serial myPort;  // Create object from Serial class
 String val;     // Data received from the serial port
 String myString = null;
 String currentUser; //the name of the current user
+String background; //the currently chosen background
 char inBuffer; 
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
@@ -33,13 +34,20 @@ void setup () {
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
+  background = "Lava";
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 10; 
   currentBackgroundIndicator = height - height / 4 + 10;
 }
 
 void draw() {
-  background(255);
+  if (background.equals("Lava")) {
+    drawLava();
+  } else if (background.equals("Stars")) {
+    drawStars();
+  } else if (background.equals("Rain")) {
+    drawRain();
+  }
   drawUI();
   setSerialValues();
   
@@ -54,10 +62,9 @@ void draw() {
 
 void mouseClicked() {
   //BACKGROUND
-  if (mouseY > height - height / 4 + 10 && 
-  mouseY < height - height / 4 + 40 && 
-  mouseX > 30 && 
-  mouseX < 120) {
-    println("Lava");
+  if (mouseY > height - height / 4 + 10 && mouseY < height - height / 4 + 40 && mouseX > 30 && mouseX < 120) {
+    background = "Lava";
+  } else if (mouseY > height - height / 4 + 40 && mouseY < height - height / 4 + 70 && mouseX > 30 && mouseX < 120) {
+    background = "Stars";
   }
 }
