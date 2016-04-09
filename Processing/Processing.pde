@@ -7,48 +7,47 @@ Serial myPort;  // Create object from Serial class
 //Public Variables
 String val;     // Data received from the serial port
 String myString = null;
-char inBuffer;
-boolean motionDetected;
-boolean RFID;
-int volumeLevel;
-int motionLevel;
-int RFIDid;
+String currentUser; //the name of the current user
+char inBuffer; 
+boolean RFID; //i don't think we use this at all
+int volumeLevel; //the current volume level
+int motionLevel; //the current motion level
+int currentUserIndicator; //y-value for current user indicator
+int currentThemeIndicator; //y-value for current theme indicator
+int currentBackgroundIndicator; //y-value for current background indicator
+int RFIDid; //stores the last RFID tag scanned
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
+
+//FONTS
+PFont neueThin48;
+PFont neueThin16;
+PFont neueMedium14;
 
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
-  size(800, 600);
+  size(1024, 768);
+  surface.setResizable(true);
+  neueThin48 = loadFont("NeueThin48.vlw");
+  neueThin16 = loadFont("NeueThin16.vlw");
+  neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
+  currentUserIndicator = height / 4 + 10;
+  currentThemeIndicator = height / 2 + 10; 
+  currentBackgroundIndicator = height - height / 4 + 10;
 }
-
 
 void draw() {
   background(255);
+  drawUI();
   setSerialValues();
   
-  //TEXT
-  fill(0);
-  text("Gekkeikan", 0, 20);
-  text("by DolphinTech", 0, 50);
-  text("Volume: " + volumeLevel, 100, 250);
-  text("Motion: " + motionLevel, 400, 250);
-  
-  if(motionDetected){
-    text("Motion is detected", 400, 300);
-  } 
-  else{
-    text("Everybody chillin", 400, 300);
-  }
-  
   if(RFIDid == 12){
-  text("Welcome Josh", width / 2, 400);
+    currentUser = "Josh";
+    currentUserIndicator = height / 4 + 10;
+  } else if(RFIDid == 2){
+    currentUser = "Macguire";
+    currentUserIndicator = height / 4 + 100;
   }
-  else if(RFIDid == 2){
-  text("Welcome Macguire", width / 2 - 100, 400);
-  }
-
-  drawBar(volumeLevel, 100, 100, 50, 100, blue); //volume bar
-  drawBar(motionLevel * 2, 400, 100, 50, 100, green); //motion bar
 }
