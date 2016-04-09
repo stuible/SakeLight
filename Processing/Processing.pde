@@ -1,3 +1,14 @@
+//  +++++++++++++++++++++++
+//  +   SakeLight         +
+//  +   by DolphinTech    +
+//  +                     +
+//  +   IAT 267 - D102    +
+//  +   Josh Stuible      +
+//  +   Macguire Rintoul  +
+//  +   Rina Shimohashi   +
+//  +   Ga Yan Yip        +
+//  +++++++++++++++++++++++
+
 //Import Libraries
 import processing.serial.*;
 
@@ -7,7 +18,10 @@ Serial myPort;  // Create object from Serial class
 //Public Variables
 String val;     // Data received from the serial port
 String myString = null;
-String currentUser; //the name of the current user
+String background; //the currently chosen background
+User Josh = new User("Josh");
+User Macguire = new User("Macguire");
+User currentUser;
 char inBuffer; 
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
@@ -33,21 +47,42 @@ void setup () {
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
+  currentUser = Josh;
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 10; 
   currentBackgroundIndicator = height - height / 4 + 10;
 }
 
 void draw() {
-  background(255);
+  if (currentUser.background.equals("Lava")) {
+    drawLava();
+  } else if (currentUser.background.equals("Stars")) {
+    drawStars();
+  } else if (currentUser.background.equals("Rain")) {
+    drawRain();
+  }
   drawUI();
   setSerialValues();
   
-  if(RFIDid == 12){
-    currentUser = "Josh";
+  if(RFIDid == 12) {
+    currentUser = Josh;
     currentUserIndicator = height / 4 + 10;
-  } else if(RFIDid == 2){
-    currentUser = "Macguire";
+  } else if(RFIDid == 2) {
+    currentUser = Macguire;
     currentUserIndicator = height / 4 + 100;
+  }
+}
+
+void mouseClicked() {
+  //BACKGROUND
+  if (mouseY > height - height / 4 + 10 && mouseY < height - height / 4 + 40 && mouseX > 30 && mouseX < 120) {
+    currentUser.background = "Lava";
+    currentBackgroundIndicator = height - height / 4 + 10;
+  } else if (mouseY > height - height / 4 + 40 && mouseY < height - height / 4 + 70 && mouseX > 30 && mouseX < 120) {
+    currentUser.background = "Stars";
+    currentBackgroundIndicator = height - height / 4 + 40;
+  } else if (mouseY > height - height / 4 + 70 && mouseY < height - height / 4 + 100 && mouseX > 30 && mouseX < 120) {
+    currentUser.background = "Rain";
+    currentBackgroundIndicator = height - height / 4 + 70;
   }
 }
