@@ -35,11 +35,6 @@ void draw() {
   drawUI();
   setSerialValues();
   
-  //TEXT
-  fill(0);
-  text("Volume: " + volumeLevel, 100, 250);
-  text("Motion: " + motionLevel, 400, 250);
-  
   if(RFIDid == 12){
     currentUser = "Josh";
     text("Welcome Josh", width / 2, 400);
