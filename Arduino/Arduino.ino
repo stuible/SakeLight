@@ -54,6 +54,11 @@ int blue[3]   = { 0, 0, 100 };
 int yellow[3] = { 40, 95, 0 };
 
 int lightColour[3];
+int startColour[3];
+int endColour[3];
+int changeTimer;
+int timeToChange;
+boolean changingColour = false;
 // Set initial color
 
 
@@ -65,6 +70,7 @@ void setup() {
   pixels.begin(); // initialize the NeoPixel library.
   motionLevel = 0;
   RFIDid = 0;
+  changeColour(black, blue, 25);
 }
 
 void loop() {
@@ -76,6 +82,7 @@ void loop() {
   checkSoundInput(); //reads the state of the microphone
   checkNFC(); //reads the state of the NFC sensor
   updateAtmosphere();
+  updateColour();
   updateLight();
 
   endSerial(); //prints the serial line so processing can recieve it
