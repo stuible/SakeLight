@@ -34,7 +34,7 @@ void drawUI() {
   text("Stars", 40, height - height / 4 + 60);
   text("Rain", 40, height - height / 4 + 90);
   
-  
+  //LABELS
   text("MOTION", width / 3, height / 4 - 20);
   text("VOLUME", width / 2, height / 4 - 80);
   
@@ -49,4 +49,8 @@ void drawUI() {
   rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
   fill(255);
   rect(width / 3 + 60, height / 4 - 60, height / 2 - volumeLevel, 50);
+  
+  //CURRENT USER INDICATOR
+  fill(0, 0, 255, 40);
+  rect(40, currentUserIndicator, 100, 50);
 }

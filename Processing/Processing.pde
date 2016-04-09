@@ -12,6 +12,7 @@ char inBuffer;
 boolean RFID;
 int volumeLevel;
 int motionLevel;
+int currentUserIndicator;
 int RFIDid;
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
@@ -28,6 +29,7 @@ void setup () {
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
+  currentUserIndicator = height / 4;
 }
 
 void draw() {
