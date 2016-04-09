@@ -15,23 +15,27 @@ int motionLevel;
 int RFIDid;
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
+PFont neueThin;
+PFont neueMedium;
 
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
-  size(800, 600);
+  size(1024, 768);
+  surface.setResizable(true);
+  neueThin = loadFont("NeueThin.vlw");
+  neueMedium = loadFont("NeueMedium.vlw");
   textSize(24);
 }
 
 
 void draw() {
   background(255);
+  drawUI();
   setSerialValues();
   
   //TEXT
   fill(0);
-  text("Gekkeikan", 0, 20);
-  text("by DolphinTech", 0, 50);
   text("Volume: " + volumeLevel, 100, 250);
   text("Motion: " + motionLevel, 400, 250);
   
