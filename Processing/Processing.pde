@@ -9,7 +9,6 @@ String val;     // Data received from the serial port
 String myString = null;
 String currentUser;
 char inBuffer;
-boolean motionDetected;
 boolean RFID;
 int volumeLevel;
 int motionLevel;
@@ -31,7 +30,6 @@ void setup () {
   textSize(24);
 }
 
-
 void draw() {
   background(255);
   drawUI();
@@ -41,13 +39,6 @@ void draw() {
   fill(0);
   text("Volume: " + volumeLevel, 100, 250);
   text("Motion: " + motionLevel, 400, 250);
-  
-  if(motionDetected){
-    text("Motion is detected", 400, 300);
-  } 
-  else{
-    text("Everybody chillin", 400, 300);
-  }
   
   if(RFIDid == 12){
     currentUser = "Josh";
