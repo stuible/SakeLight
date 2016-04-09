@@ -7,6 +7,7 @@ Serial myPort;  // Create object from Serial class
 //Public Variables
 String val;     // Data received from the serial port
 String myString = null;
+String currentUser;
 char inBuffer;
 boolean motionDetected;
 boolean RFID;
@@ -47,9 +48,11 @@ void draw() {
   }
   
   if(RFIDid == 12){
+    currentUser = "Josh";
   text("Welcome Josh", width / 2, 400);
   }
   else if(RFIDid == 2){
+    currentUser = "Macguire";
   text("Welcome Macguire", width / 2 - 100, 400);
   }
 

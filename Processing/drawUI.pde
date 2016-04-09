@@ -8,6 +8,9 @@ void drawUI() {
   textSize(24);
   text("by DolphinTech", 10, height / 12 + 30);
   
+  //Welcome message
+  text("Welcome, " + currentUser + ".", width / 2, 50);
+  
   //Left sidebar
   textFont(neueMedium);
   textSize(14);
