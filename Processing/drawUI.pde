@@ -9,7 +9,7 @@ void drawUI() {
   text("by DolphinTech", 10, height / 12 + 30);
   
   //Welcome message
-  text("Welcome, " + currentUser + ".", width / 2, 50);
+  text("Welcome, " + currentUser.name + ".", width / 2, 50);
   
   //Left sidebar
   //HEADINGS
