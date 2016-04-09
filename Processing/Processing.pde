@@ -20,6 +20,9 @@ String val;     // Data received from the serial port
 String myString = null;
 String currentUser; //the name of the current user
 String background; //the currently chosen background
+User Josh = new User("Josh");
+User Macguire = new User("Macguire");
+User theCurrentUser;
 char inBuffer; 
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
@@ -46,6 +49,7 @@ void setup () {
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
   background = "Lava";
+  theCurrentUser = Josh;
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 10; 
   currentBackgroundIndicator = height - height / 4 + 10;
@@ -62,11 +66,13 @@ void draw() {
   drawUI();
   setSerialValues();
   
-  if(RFIDid == 12){
+  if(RFIDid == 12) {
     currentUser = "Josh";
+    theCurrentUser = Josh;
     currentUserIndicator = height / 4 + 10;
-  } else if(RFIDid == 2){
+  } else if(RFIDid == 2) {
     currentUser = "Macguire";
+    theCurrentUser = Macguire;
     currentUserIndicator = height / 4 + 100;
   }
 }
@@ -75,9 +81,11 @@ void mouseClicked() {
   //BACKGROUND
   if (mouseY > height - height / 4 + 10 && mouseY < height - height / 4 + 40 && mouseX > 30 && mouseX < 120) {
     background = "Lava";
+    theCurrentUser.background = "Lava";
     currentBackgroundIndicator = height - height / 4 + 10;
   } else if (mouseY > height - height / 4 + 40 && mouseY < height - height / 4 + 70 && mouseX > 30 && mouseX < 120) {
     background = "Stars";
+    theCurrentUser.background = "Stars";
     currentBackgroundIndicator = height - height / 4 + 40;
   } else if (mouseY > height - height / 4 + 70 && mouseY < height - height / 4 + 100 && mouseX > 30 && mouseX < 120) {
     background = "Rain";
