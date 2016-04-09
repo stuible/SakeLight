@@ -16,7 +16,8 @@ int motionLevel;
 int RFIDid;
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
-PFont neueThin;
+PFont neueThin48;
+PFont neueThin16;
 PFont neueMedium14;
 
 void setup () {
@@ -24,7 +25,8 @@ void setup () {
   myPort = new Serial(this, portName, 9600); //instantiate port
   size(1024, 768);
   surface.setResizable(true);
-  neueThin = loadFont("NeueThin.vlw");
+  neueThin48 = loadFont("NeueThin48.vlw");
+  neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
 }
