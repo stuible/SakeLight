@@ -1,3 +1,14 @@
+//  +++++++++++++++++++++++
+//  +   SakeLight         +
+//  +   by DolphinTech    +
+//  +                     +
+//  +   IAT 267 - D102    +
+//  +   Josh Stuible      +
+//  +   Macguire Rintoul  +
+//  +   Rina Shimohashi   +
+//  +   Ga Yan Yip        +
+//  +++++++++++++++++++++++
+
 //Import Libraries
 import processing.serial.*;
 
