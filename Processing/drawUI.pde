@@ -1,5 +1,6 @@
 void drawUI() {
   fill(0);
+  stroke(1);
   
   //Title
   textFont(neueThin48);
@@ -52,5 +53,6 @@ void drawUI() {
   
   //CURRENT USER INDICATOR
   fill(0, 0, 255, 40);
-  rect(40, currentUserIndicator, 100, 50);
+  noStroke();
+  rect(30, currentUserIndicator, 90, 30);
 }

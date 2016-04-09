@@ -29,7 +29,7 @@ void setup () {
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
-  currentUserIndicator = height / 4;
+  currentUserIndicator = height / 4 + 10;
 }
 
 void draw() {
@@ -42,6 +42,7 @@ void draw() {
     text("Welcome Josh", width / 2, 400);
   } else if(RFIDid == 2){
     currentUser = "Macguire";
+    currentUserIndicator = height / 4 + 100;
     text("Welcome Macguire", width / 2 - 100, 400);
   }
 }
