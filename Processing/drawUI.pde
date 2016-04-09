@@ -43,7 +43,7 @@ void drawUI() {
   fill(255, 0, 0);
   rect(width / 3, height / 4, 50, height / 2);
   fill(255);
-  rect(width / 3, height / 4, 50, height / 2 - motionLevel);
+  rect(width / 3, height / 4, 50, height / 2 - motionLevel * 2);
   
   //VOLUME BAR
   fill(0, 255, 0);

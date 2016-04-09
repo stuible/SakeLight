@@ -51,3 +51,13 @@ void draw() {
     currentUserIndicator = height / 4 + 100;
   }
 }
+
+void mouseClicked() {
+  //BACKGROUND
+  if (mouseY > height - height / 4 + 10 && 
+  mouseY < height - height / 4 + 40 && 
+  mouseX > 30 && 
+  mouseX < 120) {
+    println("Lava");
+  }
+}
