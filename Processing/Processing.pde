@@ -47,7 +47,6 @@ void setup () {
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
-  background = "Lava";
   currentUser = Josh;
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 10; 
@@ -55,11 +54,11 @@ void setup () {
 }
 
 void draw() {
-  if (background.equals("Lava")) {
+  if (currentUser.background.equals("Lava")) {
     drawLava();
-  } else if (background.equals("Stars")) {
+  } else if (currentUser.background.equals("Stars")) {
     drawStars();
-  } else if (background.equals("Rain")) {
+  } else if (currentUser.background.equals("Rain")) {
     drawRain();
   }
   drawUI();
@@ -77,15 +76,13 @@ void draw() {
 void mouseClicked() {
   //BACKGROUND
   if (mouseY > height - height / 4 + 10 && mouseY < height - height / 4 + 40 && mouseX > 30 && mouseX < 120) {
-    background = "Lava";
     currentUser.background = "Lava";
     currentBackgroundIndicator = height - height / 4 + 10;
   } else if (mouseY > height - height / 4 + 40 && mouseY < height - height / 4 + 70 && mouseX > 30 && mouseX < 120) {
-    background = "Stars";
     currentUser.background = "Stars";
     currentBackgroundIndicator = height - height / 4 + 40;
   } else if (mouseY > height - height / 4 + 70 && mouseY < height - height / 4 + 100 && mouseX > 30 && mouseX < 120) {
-    background = "Rain";
+    currentUser.background = "Rain";
     currentBackgroundIndicator = height - height / 4 + 70;
   }
 }
