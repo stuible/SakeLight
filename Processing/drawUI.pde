@@ -33,4 +33,20 @@ void drawUI() {
   text("Lava", 40, height - height / 4 + 30);
   text("Stars", 40, height - height / 4 + 60);
   text("Rain", 40, height - height / 4 + 90);
+  
+  
+  text("MOTION", width / 3, height / 4 - 20);
+  text("VOLUME", width / 2, height / 4 - 80);
+  
+  //MOTION BAR
+  fill(255, 0, 0);
+  rect(width / 3, height / 4, 50, height / 2);
+  fill(255);
+  rect(width / 3, height / 4, 50, height / 2 - motionLevel);
+  
+  //VOLUME BAR
+  fill(0, 255, 0);
+  rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
+  fill(255);
+  rect(width / 3 + 60, height / 4 - 60, height / 2 - volumeLevel, 50);
 }
