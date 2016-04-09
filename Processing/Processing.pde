@@ -17,7 +17,7 @@ int RFIDid;
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
 PFont neueThin;
-PFont neueMedium;
+PFont neueMedium14;
 
 void setup () {
   String portName = Serial.list()[1]; //set port
@@ -25,7 +25,7 @@ void setup () {
   size(1024, 768);
   surface.setResizable(true);
   neueThin = loadFont("NeueThin.vlw");
-  neueMedium = loadFont("NeueMedium.vlw");
+  neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
 }
 
