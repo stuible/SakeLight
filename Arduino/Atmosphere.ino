@@ -19,7 +19,7 @@ void updateAtmosphere(){
   }
 
   motionAtmosphere = map(motionAverage, 0, 25, 0, 100);
-  volumeAtmosphere = map(volumeAverage, 0, 150, 0, 100);
+  volumeAtmosphere = map(volumeAverage, 0, 140, 0, 100);
   sendSerial(motionAtmosphere);
   sendSerial(volumeAtmosphere);
   
