@@ -39,10 +39,9 @@ void draw() {
   
   if(RFIDid == 12){
     currentUser = "Josh";
-    text("Welcome Josh", width / 2, 400);
+    currentUserIndicator = height / 4 + 10;
   } else if(RFIDid == 2){
     currentUser = "Macguire";
     currentUserIndicator = height / 4 + 100;
-    text("Welcome Macguire", width / 2 - 100, 400);
   }
 }
