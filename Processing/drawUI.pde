@@ -51,8 +51,10 @@ void drawUI() {
   fill(255);
   rect(width / 3 + 60, height / 4 - 60, height / 2 - volumeLevel, 50);
   
-  //CURRENT USER INDICATOR
+  //INDICATORS
   fill(0, 0, 255, 40);
   noStroke();
   rect(30, currentUserIndicator, 90, 30);
+  rect(30, currentThemeIndicator, 90, 30);
+  rect(30, currentBackgroundIndicator, 90, 30);
 }
