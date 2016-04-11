@@ -27,7 +27,7 @@ void drawBackground(String bg, String theme) {
     c1 = lerpColor(i1, f1, inter);
     c2 = lerpColor(i2, f2, inter);
     setGradient(0, 0, width, height, c1, c2);
-  } else if (bg.equals("Stars")) {
+  } else if (bg.equals("Stars") && theme.equals("Light")) {
     textColor = color(0);
     time += dt;
     background(255);
@@ -43,8 +43,32 @@ void drawBackground(String bg, String theme) {
       vertex(width, height);
       endShape();
     }
-  } else if (bg.equals("Rain")) {
+  } else if (bg.equals("Stars") && theme.equals("Dark")) {
+    textColor = color(255);
+    time += dt;
+    background(0);
+    noStroke();
+    fill(255, 0, 0, 1);
+    for (float y=-50; y<height-50; y+=dy) {
+      beginShape();
+      vertex(0, height);
+      for (float x=0; x<=width; x+=1) {
+        float drift = noise(x/300, y/300, time)*500;
+        vertex(x, y+drift +350);
+      }
+      vertex(width, height);
+      endShape();
+    }
+  } else if (bg.equals("Rain") && theme.equals("Light")) {
+    textColor = color(0);
     background(255, 50);
+    fill(255,1);
+    rect(0,0,width,height);
+    calcWave();
+    renderWave();
+  } else if (bg.equals("Rain") && theme.equals("Dark")) {
+    textColor = color(255);
+    background(0, 50);
     fill(255,1);
     rect(0,0,width,height);
     calcWave();
