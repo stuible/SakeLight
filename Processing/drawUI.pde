@@ -65,8 +65,8 @@ void drawUI() {
   ellipse(width / 3, height - height / 4 - motionLevel1 * 3, 20, 20);
   
   //VOLUME BAR
-  fill(255);
-  rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
-  fill(0, 255, 0);
-  rect(width / 3 + 60, height / 4 - 60, volumeLevel * 2, 50);  
+  stroke(255);
+  line(width / 3 + 60, height / 4 - 60, width / 3 + 60 + height / 2, height / 4 - 60);
+  fill(255, 100);
+  ellipse(width / 3 + 60 + volumeLevel * 2, height / 4 - 60, 20, 20);
 }
