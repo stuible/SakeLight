@@ -73,6 +73,7 @@ void setup () {
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
   textSize(24);
+  textAlign(LEFT);
   currentUser = Josh;
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 40;
@@ -194,6 +195,7 @@ void renderWave() {
 }
 
 void joshUI() {
+  textAlign(CENTER);
   int day = day();
   String monthString = null;
   if (month() == 4) {
@@ -201,7 +203,7 @@ void joshUI() {
   }
   textFont(neueThin48);
   fill(255);
-  text("Hello, " + currentUser.name + ". It is " + monthString + " " + day + ", " + year() + ".", width / 4, height / 2);
+  text("Hello, " + currentUser.name + ". It is " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
 }
 
 void keyPressed() {
