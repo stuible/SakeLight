@@ -51,7 +51,7 @@ void setup () {
   textSize(24);
   currentUser = Josh;
   currentUserIndicator = height / 4 + 10;
-  currentThemeIndicator = height / 2 + 10; 
+  currentThemeIndicator = height / 2 + 40;
   currentBackgroundIndicator = height - height / 4 + 10;
 }
 
@@ -101,7 +101,9 @@ void mouseClicked() {
   //THEME
   if (mouseY > height / 2 + 10 && mouseY < height / 2 + 40 && mouseX > 30 && mouseX < 120) {
     currentUser.theme = "Light";
+    currentThemeIndicator = height / 2 + 10;
   } else if (mouseY > height / 2 + 40 && mouseY < height / 2 + 70 && mouseX > 30 && mouseX < 120) {
     currentUser.theme = "Dark";
+    currentThemeIndicator = height / 2 + 40;
   }
 }
