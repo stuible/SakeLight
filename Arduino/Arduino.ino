@@ -55,6 +55,7 @@ int blue[3]   = { 0, 0, 200 };
 int purple[3]   = { 200, 0, 200 };
 int yellow[3] = { 255, 255, 0 };
 int orange[3] = { 255, 204, 0 };
+int pink[3] = { 255, 192, 203 };
 
 int lightColour[3];
 int startColour[3];
@@ -72,7 +73,7 @@ int colourID;
 void setup() {
   Serial.begin(9600); //begin serial communication at 9600 baud
   pinMode(13, OUTPUT);
-  nfc.begin(); // begin NFC communication
+  nfc.begin(false); // begin NFC communication
   pixels.begin(); // initialize the NeoPixel library.
   motionLevel = 0;
   RFIDid = 0;
@@ -93,5 +94,5 @@ void loop() {
 
   endSerial(); //prints the serial line so processing can recieve it
   
-  delay(10); //delay for speed of checks/updates
+  delay(33); //delay for speed of checks/updates
 }

@@ -123,9 +123,9 @@ void setup () {
 }
 
 void draw() {
-  //TESTING
-  motionLevel = (int) random(80, 85);
-  volumeLevel = (int) random(80, 85);
+  ////TESTING
+  //motionLevel = (int) random(80, 85);
+  //volumeLevel = (int) random(80, 85);
   
   //FOR DATE
   if (month() == 4) {
@@ -242,7 +242,7 @@ void joshUI() {
   noCursor();
   textAlign(CENTER);
   textFont(neueThin48);
-  fill(255);
+  fill(textColor);
   text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + ".   |   " + monthString + " " + day + ", " + year(), width / 2, height / 2);
   textFont(neueThin16);
   text("[a] to show UI", width / 2, height - height / 4);

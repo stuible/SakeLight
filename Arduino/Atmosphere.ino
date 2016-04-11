@@ -21,7 +21,7 @@ void updateAtmosphere(){
   motionAtmosphere = map(motionAverage, 0, 25, 0, 100);
   volumeAtmosphere = constrain(map(volumeAverage, 0, 70, 0, 100), 0, 100);
 
-  if (volumeAtmosphere < 60 ) {
+  if (volumeAtmosphere < 30 ) {
     //changeColour(endColour, blue, 35);
     if(RFIDid == 0){
     pulse(blue, green, 60, 4);
@@ -36,13 +36,13 @@ void updateAtmosphere(){
   else if(volumeAtmosphere < 100 ){
     //changeColour(endColour, red, 35);
     if(RFIDid == 0){
-    pulse(red, orange, constrain(map(volumeAtmosphere, 46, 100, 10, 3), 3, 10), 1);
+    pulse(red, orange, constrain(map(volumeAtmosphere, 25, 60, 10, 3), 3, 10), 1);
     }
     else if(RFIDid == 12){
-    pulse(red, orange, constrain(map(volumeAtmosphere, 46, 100, 10, 3), 3, 10), 2);
+    pulse(red, orange, constrain(map(volumeAtmosphere, 25, 60, 10, 3), 3, 10), 2);
     }
     else if(RFIDid == 2){
-    pulse(red, orange, constrain(map(volumeAtmosphere, 46, 100, 10, 3), 3, 10), 3);
+    pulse(pink, orange, constrain(map(volumeAtmosphere, 25, 60, 10, 3), 3, 10), 3);
     }
   }
   

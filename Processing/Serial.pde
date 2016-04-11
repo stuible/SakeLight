@@ -11,6 +11,7 @@ void setSerialValues(){
       try{
         motionLevel = mysensors[0];
         volumeLevel = mysensors[1];
+        motionLevel = constrain(motionLevel, 0, 355);
         RFIDid = mysensors[2];
         serialRGB[0] = mysensors[3];
         serialRGB[1] = mysensors[4];
