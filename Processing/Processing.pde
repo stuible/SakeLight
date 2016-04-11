@@ -75,6 +75,11 @@ float period = 500.0f;    // How many pixels before the wave repeats
 float dx;                 // Value for incrementing X, to be calculated as a function of period and xspacing
 float[] yvalues; 
 
+//CONSTELLATIONS
+int itemNum = 150;
+float friction = -0.3;
+Item[] items = new Item[itemNum];
+
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
@@ -105,6 +110,11 @@ void setup () {
   w = width+16;
   dx = (TWO_PI / period) * xspacing;
   yvalues = new float[w/xspacing];
+  
+  //CONSTELLATIONS
+  for (int i=0; i<itemNum; i++) {
+    items[i] = new Item(0, 0, random(2, 4), i, items);
+  }
 }
 
 void draw() {

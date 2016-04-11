@@ -37,57 +37,30 @@ void drawBackground(String bg, String theme) {
     setGradient(0, 0, width, height, c1, c2);
   } else if (bg.equals("Stars") && theme.equals("Light")) {
     currentBackgroundIndicator = height - height / 4 + 40;
-    textColor = color(0);
-    time += dt;
     background(255);
-    noStroke();
-    fill(255, 0, 0, 1);
-    for (float y=-50; y<height-50; y+=dy) {
-      beginShape();
-      vertex(0, height);
-      for (float x=0; x<=width; x+=1) {
-        float drift = noise(x/300, y/300, time)*500;
-        vertex(x, y+drift +350);
-      }
-      vertex(width, height);
-      endShape();
+    textColor = color(0);
+    fill(0);
+    ellipseMode(CENTER);
+    ellipse(mouseX, mouseY, 10, 10);
+  
+    for (int i = 0; i<itemNum; i++) {
+      items[i].move();
+      items[i].proxy();
+      items[i].display();
     }
   } else if (bg.equals("Stars") && theme.equals("Dark")) {
     currentBackgroundIndicator = height - height / 4 + 40;
     background(0);
-      textColor = color(255);
-      time += dt;
-      
-      noStroke();
-      fill(255, 0, 0, 1);
-      for (float y=-50; y<height-50; y+=dy) {
-        beginShape();
-        vertex(0, height);
-        for (float x=0; x<=width; x+=1) {
-          float drift = noise(x/300, y/300, time)*500;
-          vertex(x, y+drift +350);
-        }
-        vertex(width, height);
-        endShape();
-      }
-  } else if (bg.equals("Stars") && theme.equals("Dark")) {
-    currentBackgroundIndicator = height - height / 4 + 40;
-    background(0);
-      textColor = color(255);
-      time += dt;
-      
-      noStroke();
-      fill(255, 0, 0, 1);
-      for (float y=-50; y<height-50; y+=dy) {
-        beginShape();
-        vertex(0, height);
-        for (float x=0; x<=width; x+=1) {
-          float drift = noise(x/300, y/300, time)*500;
-          vertex(x, y+drift +350);
-        }
-        vertex(width, height);
-        endShape();
-      }
+    textColor = color(255);
+    fill(200, 100, 50);
+    ellipseMode(CENTER);
+    ellipse(mouseX, mouseY, 10, 10);
+  
+    for (int i = 0; i<itemNum; i++) {
+      items[i].move();
+      items[i].proxy();
+      items[i].display();
+    }
   } else if (bg.equals("Rain") && theme.equals("Light")) {
     currentBackgroundIndicator = height - height / 4 + 70;
     textColor = color(0);
