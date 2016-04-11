@@ -67,7 +67,8 @@ void setup () {
   frameRate(10);
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
-  size(1024, 700);
+  fullScreen();
+  //size(1024, 700);
   surface.setResizable(true);
   neueThin48 = loadFont("NeueThin48.vlw");
   neueThin16 = loadFont("NeueThin16.vlw");
