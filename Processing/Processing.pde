@@ -12,24 +12,28 @@
 //Import Libraries
 import processing.serial.*;
 
-//Serial Variables
+//Serial variables
 Serial myPort;  // Create object from Serial class
 
 //Public Variables
-String val;     // Data received from the serial port
+String val; // Data received from the serial port
 String myString = null;
 String background; //the currently chosen background
 String monthString = null;
 String minuteString = null;
+
+//Create users
 User Maryam = new User("Maryam");
 User Josh = new User("Josh");
 User Rina = new User("Rina");
 User GaYan = new User("GaYan");
 User Macguire = new User("Macguire");
 User currentUser;
+
 char inBuffer; 
+
 boolean joshUI;
-boolean RFID; //i don't think we use this at all
+
 int volumeLevel; //the current volume level
 int motionLevel; //motion level from motion sensor 1
 int motionAtmosphere;
@@ -41,21 +45,17 @@ int RFIDid; //stores the last RFID tag scanned
 int day = day();
 int minute = minute();
 int screenSaver = 500;
+
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
 
-
 int[] serialRGB = new int[6];
-
 
 //FONTS
 PFont neueThin48;
 PFont neueThin16;
 PFont neueMedium14;
 PFont arial;
-
-//IMAGES
-PImage colormap;
 
 //LAVA BACKGROUND
 //Source: http://www.openprocessing.org/sketch/173035
@@ -81,6 +81,7 @@ float dx;                 // Value for incrementing X, to be calculated as a fun
 float[] yvalues; 
 
 //CONSTELLATIONS
+//Source: http://www.openprocessing.org/sketch/6576
 int itemNum = 150;
 float friction = -0.3;
 Item[] items = new Item[itemNum];
@@ -88,22 +89,25 @@ Item[] items = new Item[itemNum];
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
-  //fullScreen();
-  size(1024, 700);
-  surface.setResizable(true);
+  size(1024, 700); //size of app window
+  surface.setResizable(true); //makes window resizable
+  
+  //FONTS
   neueThin48 = loadFont("NeueThin48.vlw");
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
-  colormap = loadImage("colormap.jpg");
   textSize(24);
   textAlign(LEFT);
+  
+  //DEFAULTS
   currentUser = Maryam;
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 40;
   currentBackgroundIndicator = height - height / 4 + 10;
   joshUI = true;
   
-  //LAVA
+  //LAVA BACKGROUND
+  //Source: http://www.openprocessing.org/sketch/173035
   i1 = color(random(Rlow, R), random(Rlow, R), random(Rlow, R));
   i2 = color(random(Rlow, R), random(Rlow, R), random(Rlow, R));
   c1 = i1;
@@ -112,21 +116,19 @@ void setup () {
   f2 = i2;
   
   //WAVE BACKGROUND
+  //Source: http://www.openprocessing.org/sketch/1012
   w = width+16;
   dx = (TWO_PI / period) * xspacing;
   yvalues = new float[w/xspacing];
   
   //CONSTELLATIONS
+  //Source: http://www.openprocessing.org/sketch/6576
   for (int i=0; i<itemNum; i++) {
     items[i] = new Item(0, 0, random(2, 4), i, items);
   }
 }
 
 void draw() {
-  //TESTING
-  motionLevel = (int) random(80, 85);
-  volumeLevel = (int) random(80, 85);
-  
   //FOR DATE
   if (month() == 4) {
     monthString = "April";
@@ -138,20 +140,24 @@ void draw() {
     minuteString = "" + minute;
   }
   
+  //SCREENSAVER
   screenSaver--;
   if (screenSaver == 0) {
     joshUI = true;
   }
   
-  drawBackground(currentUser.background, currentUser.theme);
+  drawBackground(currentUser.background, currentUser.theme); //draws background according to current user's settings
+  
+  //screensaver/intro page
   if (!joshUI) {
     drawUI();
   } else {
     joshUI();
   }
   
-  setSerialValues();
+  setSerialValues(); //collect new values from sensors
   
+  //change the current user based on the RFIDid collected
   if(RFIDid == 12) {
     currentUser = Josh;
     currentUserIndicator = height / 4 + 10;
@@ -161,6 +167,7 @@ void draw() {
   }
 }
 
+//clickable elements
 void mouseClicked() {
   //BACKGROUND
   if (mouseY > height - height / 4 + 10 && mouseY < height - height / 4 + 40 && mouseX > 30 && mouseX < 120) {
@@ -196,17 +203,7 @@ void mouseClicked() {
   }
 }
 
-void pickNewColor(){
-    
-    i1 = f1;
-    i2 = f2;
-    
-    f1 = color(random(Rlow, R), random(Rlow, R), random(Rlow, R));
-    f2 = lerpColor(i1, i2, 0.5);  
-    
-    i =0;
-}
-
+//Set gradient for lava background
 void setGradient(int x, int y, float w, float h, color c1, color c2 ) {
   for (int i = y; i <= y+h; i++) {
     float inter = map(i, y, y+h, 0, 1);
@@ -216,6 +213,7 @@ void setGradient(int x, int y, float w, float h, color c1, color c2 ) {
   }
 }
 
+//calculate wave for wave background
 void calcWave() {
   // Increment theta (try different values for 'angular velocity' here
   theta += 0.02;
@@ -227,7 +225,8 @@ void calcWave() {
     x+=dx;
   }
 }
- 
+
+//draw wave for wave background
 void renderWave() {
   // A simple way to draw the wave with an ellipse at each location
   for ( int x = 0; x < yvalues.length; x++ ) {
@@ -238,6 +237,7 @@ void renderWave() {
   }
 }
 
+//intro screen/screensaver
 void joshUI() {
   noCursor();
   textAlign(CENTER);
@@ -248,6 +248,7 @@ void joshUI() {
   text("[a] to show UI", width / 2, height - height / 4);
 }
 
+//key interactions
 void keyPressed() {
   if (key == 'a') {
     screenSaver = 500;
@@ -259,6 +260,7 @@ void keyPressed() {
   }
 }
 
+//stops screensaver
 void mouseMoved() {
   screenSaver = 500;
 }
