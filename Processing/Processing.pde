@@ -141,13 +141,10 @@ void mouseClicked() {
   //BACKGROUND
   if (mouseY > height - height / 4 + 10 && mouseY < height - height / 4 + 40 && mouseX > 30 && mouseX < 120) {
     currentUser.background = "Lava";
-    currentBackgroundIndicator = height - height / 4 + 10;
   } else if (mouseY > height - height / 4 + 40 && mouseY < height - height / 4 + 70 && mouseX > 30 && mouseX < 120) {
     currentUser.background = "Stars";
-    currentBackgroundIndicator = height - height / 4 + 40;
   } else if (mouseY > height - height / 4 + 70 && mouseY < height - height / 4 + 100 && mouseX > 30 && mouseX < 120) {
     currentUser.background = "Rain";
-    currentBackgroundIndicator = height - height / 4 + 70;
   }
   
   //CURRENT USER
