@@ -22,6 +22,7 @@ String background; //the currently chosen background
 String monthString = null;
 String minuteString = null;
 User Maryam = new User("Maryam");
+User Helmine = new User("Helmine");
 User Josh = new User("Josh");
 User Rina = new User("Rina");
 User GaYan = new User("GaYan");
@@ -97,7 +98,7 @@ void setup () {
   colormap = loadImage("colormap.jpg");
   textSize(24);
   textAlign(LEFT);
-  currentUser = Maryam;
+  currentUser = Helmine;
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 40;
   currentBackgroundIndicator = height - height / 4 + 10;
@@ -153,10 +154,10 @@ void draw() {
   setSerialValues();
   
   if(RFIDid == 12) {
-    currentUser = Josh;
+    currentUser = Helmine;
     currentUserIndicator = height / 4 + 10;
   } else if(RFIDid == 2) {
-    currentUser = Macguire;
+    currentUser = Maryam;
     currentUserIndicator = height / 4 + 100;
   }
 }

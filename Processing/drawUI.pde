@@ -34,10 +34,10 @@ void drawUI() {
   
   //USERS
   textFont(neueThin16);
-  text("Josh", 40, height / 4 + 30);
+  text("Helmine", 40, height / 4 + 30);
   text("Rina", 40, height / 4 + 60);
   text("Ga Yan", 40, height / 4 + 90);
-  text("Macguire", 40, height / 4 + 120);
+  text("Maryam", 40, height / 4 + 120);
   
   //THEME
   text("Sake-Light", 40, height / 2 + 30);
