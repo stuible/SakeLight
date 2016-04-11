@@ -25,6 +25,7 @@ User GaYan = new User("GaYan");
 User Macguire = new User("Macguire");
 User currentUser;
 char inBuffer; 
+boolean joshUI = false;
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
 int motionLevel; //the current motion level
@@ -92,9 +93,11 @@ void setup () {
 }
 
 void draw() {
-  drawBackground(currentUser.background, currentUser.theme);
+  if (!joshUI) {
+    drawBackground(currentUser.background, currentUser.theme);
+    drawUI();
+  }
   
-  drawUI();
   setSerialValues();
   
   if(RFIDid == 12) {
