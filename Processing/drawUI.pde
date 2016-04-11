@@ -1,4 +1,4 @@
-color textColor = color(255);
+color textColor = color(255); //color of text and UI elements
 
 void drawUI() {
   textAlign(LEFT);
