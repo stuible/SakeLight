@@ -1,12 +1,30 @@
+color textColor = color(255);
+
 void drawUI() {
-  fill(0);
+  textAlign(LEFT);
+  cursor();
+  
+  //INDICATORS
+  fill(0, 0, 255, 40);
+  noStroke();
+  rect(30, currentUserIndicator, 90, 30);
+  rect(30, currentThemeIndicator, 90, 30);
+  rect(30, currentBackgroundIndicator, 90, 30);
+  
+  fill(textColor);
   stroke(1);
+  int paddingLeft = 25;
   
   //Title
   textFont(neueThin48);
-  text("SakeLight", 10, height / 12);
+  text("Sakenomi", paddingLeft, height / 12);
   textSize(24);
-  text("by DolphinTech", 10, height / 12 + 30);
+  text("by DolphinTech", paddingLeft, height / 12 + 30);
+  //textFont(arial);
+  //text("飲み酒", paddingLeft, height / 12);
+  //textFont(neueThin48);
+  //textSize(24);
+  //text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message
   text("Welcome, " + currentUser.name + ".", width / 2, 50);
@@ -15,9 +33,9 @@ void drawUI() {
   //HEADINGS
   textFont(neueMedium14);
   textSize(14);
-  text("CURRENT USER", 10, height / 4);
-  text("THEME", 10, height / 2);
-  text("BACKGROUND", 10, height - height / 4);
+  text("CURRENT USER", paddingLeft, height / 4);
+  text("THEME", paddingLeft, height / 2);
+  text("BACKGROUND", paddingLeft, height - height / 4);
   
   //USERS
   textFont(neueThin16);
@@ -39,6 +57,7 @@ void drawUI() {
   text("MOTION", width / 3, height / 4 - 20);
   text("VOLUME", width / 2, height / 4 - 80);
   
+  noStroke();
   //MOTION BAR
   fill(255, 0, 0);
   rect(width / 3, height / 4, 50, height / 2);
@@ -50,11 +69,4 @@ void drawUI() {
   rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
   fill(255);
   rect(width / 3 + 60, height / 4 - 60, height / 2 - volumeLevel, 50);
-  
-  //INDICATORS
-  fill(0, 0, 255, 40);
-  noStroke();
-  rect(30, currentUserIndicator, 90, 30);
-  rect(30, currentThemeIndicator, 90, 30);
-  rect(30, currentBackgroundIndicator, 90, 30);
 }
