@@ -4,7 +4,7 @@ void checkMotion(){
   //if(atmosphereCounter < averagesLength){
     if (val == HIGH) { //if the value read is high, there was no motion
       if (motionLevel > 0) {
-        motionLevel -= 1;
+        motionLevel -= 5;
       } 
     } else if (val == LOW) { //if the value read was low, there was motion
       motionLevel += 1;
@@ -12,13 +12,13 @@ void checkMotion(){
   //} else {
     //motionLevel = 0;
   //}
-  sendSerial(val);
+  //sendSerial(motionLevel);
   val = digitalRead(pirPin2); //read state of the PIR
 //
 //  if(atmosphereCounter < averagesLength){
   if (val == HIGH) { //if the value read is high, there was no motion
     if (motionLevel > 0) {
-      motionLevel -= 1;
+      motionLevel -= 5;
     }
     
   }
@@ -30,6 +30,6 @@ void checkMotion(){
 //    motionLevel = 0;
 //  }
 
-  sendSerial(val);
+  sendSerial(motionLevel);
 }
 

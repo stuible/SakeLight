@@ -27,7 +27,7 @@ unsigned int peakToPeak = 0;   // peak-to-peak level
 
 //Motion Variables
 int pirPin1 = 2; //pin the motion sensor is connected to
-int pirPin2 = 4;
+int pirPin2 = 3;
 int val; //voltage of the motion sensor pin
 int motionLevel; //current motion level
 int volumeLevel; //current volume level

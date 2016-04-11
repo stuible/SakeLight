@@ -44,5 +44,11 @@ void pulse(int color1[3], int color2[3], int _timeToChange, int _colourID){
   if (!pulse1 && changeTimer == 0){
     changeColour(color2, color1, _timeToChange);
   }
+  sendSerial(color1[0]);
+  sendSerial(color1[1]);
+  sendSerial(color1[2]);
+  sendSerial(color2[0]);
+  sendSerial(color2[1]);
+  sendSerial(color2[2]);
 }
 
