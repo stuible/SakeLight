@@ -21,6 +21,7 @@ String myString = null;
 String background; //the currently chosen background
 String monthString = null;
 String minuteString = null;
+User Maryam = new User("Maryam");
 User Josh = new User("Josh");
 User Rina = new User("Rina");
 User GaYan = new User("GaYan");
@@ -40,6 +41,7 @@ int currentBackgroundIndicator; //y-value for current background indicator
 int RFIDid; //stores the last RFID tag scanned
 int day = day();
 int minute = minute();
+int screenSaver = 500;
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
 
@@ -92,7 +94,7 @@ void setup () {
   colormap = loadImage("colormap.jpg");
   textSize(24);
   textAlign(LEFT);
-  currentUser = Josh;
+  currentUser = Maryam;
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 40;
   currentBackgroundIndicator = height - height / 4 + 10;
@@ -131,6 +133,11 @@ void draw() {
     minuteString = "0" + minute;
   } else {
     minuteString = "" + minute;
+  }
+  
+  screenSaver--;
+  if (screenSaver == 0) {
+    joshUI = true;
   }
   
   drawBackground(currentUser.background, currentUser.theme);
@@ -240,10 +247,15 @@ void joshUI() {
 
 void keyPressed() {
   if (key == 'a') {
+    screenSaver = 500;
     if (joshUI) {
       joshUI = false;
     } else if (!joshUI) {
       joshUI = true;
     }
   }
+}
+
+void mouseMoved() {
+  screenSaver = 500;
 }
