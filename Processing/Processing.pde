@@ -48,10 +48,12 @@ int R = 255;
 int v = 150;
 
 //SMOKE BACKGROUND
+//Source: http://www.openprocessing.org/sketch/199433
 float time = 0;
 float dy = 2, dt = 0.02;
 
 //WAVE BACKGROUND
+//Source: http://www.openprocessing.org/sketch/1012
 int xspacing = 8;   // How far apart should each horizontal location be spaced
 int w;              // Width of entire wave
 float theta = 0.0f;       // Start angle at 0
