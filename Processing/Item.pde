@@ -1,3 +1,4 @@
+//item class for constellation background
 class Item {
 
   float x, y;

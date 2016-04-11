@@ -1,3 +1,4 @@
+//collect sensor information from Arduino
 void setSerialValues(){
   while (myPort.available() > 0) {
     String myString = myPort.readStringUntil(10);

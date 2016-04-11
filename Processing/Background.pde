@@ -1,3 +1,5 @@
+//method to draw backgrounds according to user's preferences
+
 void drawBackground(String bg, String theme) {
   if (bg.equals("Lava") && theme.equals("Dark")) {
     R = 150;
