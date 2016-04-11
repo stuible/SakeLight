@@ -213,6 +213,19 @@ void setGradient(int x, int y, float w, float h, color c1, color c2 ) {
   }
 }
 
+//pick new color for lava background
+void pickNewColor(){
+    
+    i1 = f1;
+    i2 = f2;
+    
+    f1 = color(random(R), random(R), random(R));
+    f2 = lerpColor(i1, i2, 0.5);  
+    
+    i =0;
+}
+
+
 //calculate wave for wave background
 void calcWave() {
   // Increment theta (try different values for 'angular velocity' here

@@ -46,7 +46,7 @@ void drawUI() {
   //BACKGROUND
   text("Lava", 40, height - height / 4 + 30);
   text("Stars", 40, height - height / 4 + 60);
-  text("Rain", 40, height - height / 4 + 90);
+  text("Wave", 40, height - height / 4 + 90);
   
   //LABELS
   text("MOTION", width / 4, height / 2);
