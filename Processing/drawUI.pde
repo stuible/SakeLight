@@ -1,9 +1,16 @@
 color textColor = color(255);
 
 void drawUI() {
+  //INDICATORS
+  fill(0, 0, 255, 40);
+  noStroke();
+  rect(30, currentUserIndicator, 90, 30);
+  rect(30, currentThemeIndicator, 90, 30);
+  rect(30, currentBackgroundIndicator, 90, 30);
+  
   fill(textColor);
   stroke(1);
-  int paddingLeft = 30;
+  int paddingLeft = 25;
   
   //Title
   textFont(neueThin48);
@@ -42,6 +49,7 @@ void drawUI() {
   text("MOTION", width / 3, height / 4 - 20);
   text("VOLUME", width / 2, height / 4 - 80);
   
+  noStroke();
   //MOTION BAR
   fill(255, 0, 0);
   rect(width / 3, height / 4, 50, height / 2);
@@ -53,11 +61,4 @@ void drawUI() {
   rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
   fill(255);
   rect(width / 3 + 60, height / 4 - 60, height / 2 - volumeLevel, 50);
-  
-  //INDICATORS
-  fill(0, 0, 255, 40);
-  noStroke();
-  rect(30, currentUserIndicator, 90, 30);
-  rect(30, currentThemeIndicator, 90, 30);
-  rect(30, currentBackgroundIndicator, 90, 30);
 }
