@@ -56,16 +56,16 @@ void drawUI() {
   //image(colormap, width / 3, height / 4, height / 2, height / 2);
   
   noStroke();
-  //MOTION + VOLUME LINES
+  //MOTION + VOLUME AXES
   stroke(textColor);
-  line(width / 3, height / 4, width / 3, height / 4 + height / 2);
-  line(width / 3, height - height / 4, width / 3 + height / 2, height - height / 4);
+  line(width / 3, height / 4, width / 3, height / 4 + 350);
+  line(width / 3, height / 4 + 350, width / 3 + 350, height / 4 + 350);
   
   //LINE FROM MOTION
   line(width / 3, height - height / 4 - motionLevel * 3, width / 3 + 60 + volumeLevel * 2 + 20, height - height / 4 - motionLevel * 3);
   
   //LINE FROM VOLUME
-  line(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel * 3 - 20, width / 3 + 60 + volumeLevel * 2, height - height / 4);
+  line(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel * 3 - 20, width / 3 + 60 + volumeLevel * 2, height / 4 + 350);
   
   noStroke();
   fill(textColor, 50);
