@@ -22,7 +22,7 @@ void drawUI() {
   text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message
-  text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + " on " + monthString + " " + day + ", " + year() + ".", width / 2, 50);
+  text(hour() + ":" + minuteString + "   |   " + monthString + " " + day + ", " + year(), width / 2, 50);
   
   //Left sidebar
   //HEADINGS

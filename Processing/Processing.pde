@@ -45,6 +45,10 @@ int screenSaver = 500;
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
 
+
+int[] serialRGB = new int[6];
+
+
 //FONTS
 PFont neueThin48;
 PFont neueThin16;
@@ -240,7 +244,7 @@ void joshUI() {
   textAlign(CENTER);
   textFont(neueThin48);
   fill(255);
-  text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + " on " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
+  text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + ".   |   " + monthString + " " + day + ", " + year(), width / 2, height / 2);
   textFont(neueThin16);
   text("[a] to show UI", width / 2, height - height / 4);
 }
