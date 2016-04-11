@@ -40,10 +40,10 @@ PFont neueThin48;
 PFont neueThin16;
 PFont neueMedium14;
 
-//LAVA
+//LAVA BACKGROUND
+//Source: http://www.openprocessing.org/sketch/173035
 color i1, i2, f1, f2, c1, c2;
-
-int i =0;
+int i = 0;
 int R = 255;
 int v = 150;
 
