@@ -65,7 +65,6 @@ float dx;                 // Value for incrementing X, to be calculated as a fun
 float[] yvalues; 
 
 void setup () {
-  frameRate(10);
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
   fullScreen();
