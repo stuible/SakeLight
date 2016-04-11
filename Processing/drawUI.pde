@@ -27,7 +27,7 @@ void drawUI() {
   //text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message
-  text("Welcome, " + currentUser.name + ".", width / 2, 50);
+  text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + " on " + monthString + " " + day + ", " + year() + ".", width / 2, 50);
   
   //Left sidebar
   //HEADINGS
@@ -54,8 +54,8 @@ void drawUI() {
   text("Rain", 40, height - height / 4 + 90);
   
   //LABELS
-  text("MOTION", width / 3, height / 4 - 20);
-  text("VOLUME", width / 2, height / 4 - 80);
+  text("MOTION", width / 4, height / 2);
+  text("VOLUME", width / 2, height - height / 5);
   
   noStroke();
   //MOTION BAR

@@ -19,6 +19,8 @@ Serial myPort;  // Create object from Serial class
 String val;     // Data received from the serial port
 String myString = null;
 String background; //the currently chosen background
+String monthString = null;
+String minuteString = null;
 User Josh = new User("Josh");
 User Rina = new User("Rina");
 User GaYan = new User("GaYan");
@@ -36,6 +38,8 @@ int currentUserIndicator; //y-value for current user indicator
 int currentThemeIndicator; //y-value for current theme indicator
 int currentBackgroundIndicator; //y-value for current background indicator
 int RFIDid; //stores the last RFID tag scanned
+int day = day();
+int minute = minute();
 color blue = color(0, 0, 200);
 color green = color(0, 200, 0);
 
@@ -102,6 +106,17 @@ void draw() {
   //TESTING
   motionLevel1 = (int) random(80, 85);
   volumeLevel = (int) random(80, 85);
+  
+  //FOR DATE
+  if (month() == 4) {
+    monthString = "April";
+  }
+  minute = minute();
+  if (minute() < 10) {
+    minuteString = "0" + minute;
+  } else {
+    minuteString = "" + minute;
+  }
   
   drawBackground(currentUser.background, currentUser.theme);
   if (!joshUI) {
@@ -171,14 +186,12 @@ void pickNewColor(){
 }
 
 void setGradient(int x, int y, float w, float h, color c1, color c2 ) {
- 
- for (int i = y; i <= y+h; i++) {
-      float inter = map(i, y, y+h, 0, 1);
-      color c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(x, i, x+w, i);
- }
- 
+  for (int i = y; i <= y+h; i++) {
+    float inter = map(i, y, y+h, 0, 1);
+    color c = lerpColor(c1, c2, inter);
+    stroke(c);
+    line(x, i, x+w, i);
+  }
 }
 
 void calcWave() {
@@ -206,19 +219,6 @@ void renderWave() {
 void joshUI() {
   noCursor();
   textAlign(CENTER);
-  int day = day();
-  String monthString = null;
-  int minute = minute();
-  String minuteString = null;
-  if (month() == 4) {
-    monthString = "April";
-  }
-  minute = minute();
-  if (minute() < 10) {
-    minuteString = "0" + minute;
-  } else {
-    minuteString = "" + minute;
-  }
   textFont(neueThin48);
   fill(255);
   text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + " on " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
