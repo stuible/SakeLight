@@ -25,10 +25,13 @@ User GaYan = new User("GaYan");
 User Macguire = new User("Macguire");
 User currentUser;
 char inBuffer; 
-boolean joshUI = true;
+boolean joshUI = false;
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
-int motionLevel; //the current motion level
+int motionLevel1; //motion level from motion sensor 1
+int motionLevel2; //motion level from motion sensor 2
+int motionAtmosphere;
+int volumeAtmosphere;
 int currentUserIndicator; //y-value for current user indicator
 int currentThemeIndicator; //y-value for current theme indicator
 int currentBackgroundIndicator; //y-value for current background indicator
@@ -67,8 +70,8 @@ float[] yvalues;
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
-  fullScreen();
-  //size(1024, 700);
+  //fullScreen();
+  size(1024, 700);
   surface.setResizable(true);
   neueThin48 = loadFont("NeueThin48.vlw");
   neueThin16 = loadFont("NeueThin16.vlw");
@@ -96,7 +99,8 @@ void setup () {
 }
 
 void draw() {
-  drawBackground(currentUser.background, currentUser.theme);
+  background(0);
+  //drawBackground(currentUser.background, currentUser.theme);
   if (!joshUI) {
     drawUI();
   } else {

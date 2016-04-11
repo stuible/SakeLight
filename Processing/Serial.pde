@@ -9,9 +9,12 @@ void setSerialValues(){
       int[] mysensors = int(splitTokens(myString, "&"));
 
       try{
-        motionLevel = mysensors[0];
-        volumeLevel = mysensors[1];
-        RFIDid = mysensors[2];
+        motionLevel1 = mysensors[0];
+        motionLevel2 = mysensors[1];
+        volumeLevel = mysensors[2];
+        RFIDid = mysensors[3];
+        //motionAtmosphere = mysensors[4];
+        //volumeAtmosphere = mysensors[5];
         
         //println("Motion level: " + motionLevel);
         //println("Volume level: " + volumeLevel);
