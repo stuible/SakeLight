@@ -20,14 +20,9 @@ void drawUI() {
   text("Sakenomi", paddingLeft, height / 12);
   textSize(24);
   text("by DolphinTech", paddingLeft, height / 12 + 30);
-  //textFont(arial);
-  //text("飲み酒", paddingLeft, height / 12);
-  //textFont(neueThin48);
-  //textSize(24);
-  //text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message
-  text("Welcome, " + currentUser.name + ".", width / 2, 50);
+  text(hour() + ":" + minuteString + "   |   " + monthString + " " + day + ", " + year(), width / 2, 50);
   
   //Left sidebar
   //HEADINGS
@@ -54,19 +49,25 @@ void drawUI() {
   text("Rain", 40, height - height / 4 + 90);
   
   //LABELS
-  text("MOTION", width / 3, height / 4 - 20);
-  text("VOLUME", width / 2, height / 4 - 80);
+  text("MOTION", width / 4, height / 2);
+  text("VOLUME", width / 2, height - height / 5);
+  
+  //COLORMAP
+  //image(colormap, width / 3, height / 4, height / 2, height / 2);
   
   noStroke();
-  //MOTION BAR
-  fill(255, 0, 0);
-  rect(width / 3, height / 4, 50, height / 2);
-  fill(255);
-  rect(width / 3, height / 4, 50, height / 2 - motionLevel * 2);
+  //MOTION + VOLUME LINES
+  stroke(textColor);
+  line(width / 3, height / 4, width / 3, height / 4 + height / 2);
+  line(width / 3, height - height / 4, width / 3 + height / 2, height - height / 4);
   
-  //VOLUME BAR
-  fill(0, 255, 0);
-  rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
-  fill(255);
-  rect(width / 3 + 60, height / 4 - 60, height / 2 - volumeLevel, 50);
+  //LINE FROM MOTION
+  line(width / 3, height - height / 4 - motionLevel * 3, width / 3 + 60 + volumeLevel * 2 + 20, height - height / 4 - motionLevel * 3);
+  
+  //LINE FROM VOLUME
+  line(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel * 3 - 20, width / 3 + 60 + volumeLevel * 2, height - height / 4);
+  
+  noStroke();
+  fill(textColor, 50);
+  ellipse(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel * 3, 20, 20);
 }
