@@ -44,21 +44,22 @@ void drawBackground(String bg, String theme) {
       endShape();
     }
   } else if (bg.equals("Stars") && theme.equals("Dark")) {
-    textColor = color(255);
-    time += dt;
     background(0);
-    noStroke();
-    fill(255, 0, 0, 1);
-    for (float y=-50; y<height-50; y+=dy) {
-      beginShape();
-      vertex(0, height);
-      for (float x=0; x<=width; x+=1) {
-        float drift = noise(x/300, y/300, time)*500;
-        vertex(x, y+drift +350);
+      textColor = color(255);
+      time += dt;
+      
+      noStroke();
+      fill(255, 0, 0, 1);
+      for (float y=-50; y<height-50; y+=dy) {
+        beginShape();
+        vertex(0, height);
+        for (float x=0; x<=width; x+=1) {
+          float drift = noise(x/300, y/300, time)*500;
+          vertex(x, y+drift +350);
+        }
+        vertex(width, height);
+        endShape();
       }
-      vertex(width, height);
-      endShape();
-    }
   } else if (bg.equals("Rain") && theme.equals("Light")) {
     textColor = color(0);
     background(255, 50);

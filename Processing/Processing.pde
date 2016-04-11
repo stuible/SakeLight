@@ -99,8 +99,7 @@ void setup () {
 }
 
 void draw() {
-  background(0);
-  //drawBackground(currentUser.background, currentUser.theme);
+  drawBackground(currentUser.background, currentUser.theme);
   if (!joshUI) {
     drawUI();
   } else {
