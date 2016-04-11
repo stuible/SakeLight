@@ -1,6 +1,6 @@
 class User {
   String name;
-  String theme;
+  String theme = "Dark";
   String background = "Lava";
   
   User(String name_init) {

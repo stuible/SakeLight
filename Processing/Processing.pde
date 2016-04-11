@@ -56,14 +56,7 @@ void setup () {
 }
 
 void draw() {
-  drawBackground(currentUser.background);
-  //if (currentUser.background.equals("Lava")) {
-    
-  //} else if (currentUser.background.equals("Stars")) {
-  //  drawStars();
-  //} else if (currentUser.background.equals("Rain")) {
-  //  drawRain();
-  //}
+  drawBackground(currentUser.background, currentUser.theme);
   
   drawUI();
   setSerialValues();
@@ -107,8 +100,8 @@ void mouseClicked() {
   
   //THEME
   if (mouseY > height / 2 + 10 && mouseY < height / 2 + 40 && mouseX > 30 && mouseX < 120) {
-    currentUser.theme = "light";
+    currentUser.theme = "Light";
   } else if (mouseY > height / 2 + 40 && mouseY < height / 2 + 70 && mouseX > 30 && mouseX < 120) {
-    currentUser.theme = "dark";
+    currentUser.theme = "Dark";
   }
 }
