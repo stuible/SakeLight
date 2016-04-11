@@ -1,6 +1,7 @@
 void drawUI() {
-  fill(0);
+  fill(255);
   stroke(1);
+  int paddingLeft = 30;
   
   //Title
   textFont(neueThin48);
