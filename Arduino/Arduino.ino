@@ -45,8 +45,23 @@ int averagesLength = 60;
 int volumeAverages[60];
 int motionAverages[60];
 
+//Light Colours
+int black[3]  = { 0, 0, 0 };
+int white[3]  = { 100, 100, 100 };
+int red[3]    = { 100, 0, 0 };
+int green[3]  = { 0, 100, 0 };
+int blue[3]   = { 0, 0, 100 };
+int yellow[3] = { 40, 95, 0 };
 
-//Light Variables
+int lightColour[3];
+int startColour[3];
+int endColour[3];
+int changeTimer;
+int timeToChange;
+boolean changingColour = false;
+// Set initial color
+
+
 
 void setup() {
   Serial.begin(9600); //begin serial communication at 9600 baud
@@ -55,6 +70,7 @@ void setup() {
   pixels.begin(); // initialize the NeoPixel library.
   motionLevel = 0;
   RFIDid = 0;
+  changeColour(black, blue, 25);
 }
 
 void loop() {
@@ -66,9 +82,10 @@ void loop() {
   checkSoundInput(); //reads the state of the microphone
   checkNFC(); //reads the state of the NFC sensor
   updateAtmosphere();
-  updateLight(); //updates the light accordingly
+  updateColour();
+  updateLight();
 
   endSerial(); //prints the serial line so processing can recieve it
-
+  
   //delay(10); //delay for speed of checks/updates
 }

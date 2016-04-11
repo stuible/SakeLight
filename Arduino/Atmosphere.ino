@@ -19,7 +19,15 @@ void updateAtmosphere(){
   }
 
   motionAtmosphere = map(motionAverage, 0, 25, 0, 100);
-  volumeAtmosphere = map(volumeAverage, 0, 150, 0, 100);
+  volumeAtmosphere = map(volumeAverage, 30, 80, 0, 100);
+
+  if(volumeAtmosphere > 50){
+    changeColour(endColour, red, 25);
+  }
+  else {
+    changeColour(endColour, blue, 25);
+  }
+  
   sendSerial(motionAtmosphere);
   sendSerial(volumeAtmosphere);
   
