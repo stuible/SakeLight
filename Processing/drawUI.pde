@@ -62,11 +62,11 @@ void drawUI() {
   fill(255, 0, 0);
   rect(width / 3, height / 4, 50, height / 2);
   fill(255);
-  rect(width / 3, height / 4, 50, height / 2 - motionLevel * 2);
+  rect(width / 3, height / 4, 50, height / 2 - motionLevel * 3);
   
   //VOLUME BAR
-  fill(0, 255, 0);
-  rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
   fill(255);
-  rect(width / 3 + 60, height / 4 - 60, height / 2 - volumeLevel, 50);
+  rect(width / 3 + 60, height / 4 - 60, height / 2, 50);
+  fill(0, 255, 0);
+  rect(width / 3 + 60, height / 4 - 60, volumeLevel * 2, 50);  
 }

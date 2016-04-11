@@ -13,9 +13,9 @@ void setSerialValues(){
         volumeLevel = mysensors[1];
         RFIDid = mysensors[2];
         
-        println("Motion level: " + motionLevel);
-        println("Volume level: " + volumeLevel);
-        println("NFC ID: " + RFIDid);
+        //println("Motion level: " + motionLevel);
+        //println("Volume level: " + volumeLevel);
+        //println("NFC ID: " + RFIDid);
       } 
       catch(Exception e){
         println("Sensors Unavailable");
