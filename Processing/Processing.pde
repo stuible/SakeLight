@@ -99,6 +99,10 @@ void setup () {
 }
 
 void draw() {
+  //TESTING
+  motionLevel1 = (int) random(80, 85);
+  volumeLevel = (int) random(80, 85);
+  
   drawBackground(currentUser.background, currentUser.theme);
   if (!joshUI) {
     drawUI();
