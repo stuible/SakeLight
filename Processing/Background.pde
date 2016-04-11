@@ -2,7 +2,7 @@ void drawBackground(String bg, String theme) {
   if (bg.equals("Lava") && theme.equals("Dark")) {
     R = 150;
     Rlow = 0;
-    textColor = 255;
+    textColor = color(255);
     currentBackgroundIndicator = height - height / 4 + 10;
     //LAVA BACKGROUND
     //Source: http://www.openprocessing.org/sketch/173035
