@@ -19,13 +19,31 @@ void updateAtmosphere(){
   }
 
   motionAtmosphere = map(motionAverage, 0, 25, 0, 100);
-  volumeAtmosphere = map(volumeAverage, 30, 80, 0, 100);
+  volumeAtmosphere = map(volumeAverage, 30, 50, 0, 100);
 
-  if(volumeAtmosphere > 50){
-    changeColour(endColour, red, 25);
+  if(volumeAtmosphere > 46 ){
+    //changeColour(endColour, red, 35);
+    if(RFIDid == 0){
+    pulse(red, orange, map(volumeAtmosphere, 46, 100, 10, 3), 1);
+    }
+    else if(RFIDid == 12){
+    pulse(red, orange, map(volumeAtmosphere, 46, 100, 10, 3), 1);
+    }
+    else if(RFIDid == 2){
+    pulse(red, orange, map(volumeAtmosphere, 46, 100, 10, 3), 1);
+    }
   }
   else {
-    changeColour(endColour, blue, 25);
+    //changeColour(endColour, blue, 35);
+    if(RFIDid == 0){
+    pulse(blue, green, 60, 2);
+    }
+    else if(RFIDid == 12){
+    pulse(blue, green, 60, 2);
+    }
+    else if(RFIDid == 2){
+    pulse(blue, purple, 60, 2);
+    }
   }
   
   sendSerial(motionAtmosphere);

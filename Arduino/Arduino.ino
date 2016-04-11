@@ -26,7 +26,8 @@ unsigned int sample;
 unsigned int peakToPeak = 0;   // peak-to-peak level
 
 //Motion Variables
-int pirPin = 3; //pin the motion sensor is connected to
+int pirPin1 = 3; //pin the motion sensor is connected to
+int pirPin2 = 4;
 int val; //voltage of the motion sensor pin
 int motionLevel; //current motion level
 int volumeLevel; //current volume level
@@ -41,17 +42,19 @@ int atmosphereCounter;
 int volumeAverage;
 int motionAverage;
 
-int averagesLength = 60;
-int volumeAverages[60];
-int motionAverages[60];
+int averagesLength = 30;
+int volumeAverages[30];
+int motionAverages[30];
 
 //Light Colours
 int black[3]  = { 0, 0, 0 };
-int white[3]  = { 100, 100, 100 };
-int red[3]    = { 100, 0, 0 };
-int green[3]  = { 0, 100, 0 };
-int blue[3]   = { 0, 0, 100 };
-int yellow[3] = { 40, 95, 0 };
+int white[3]  = { 200, 200, 200 };
+int red[3]    = { 200, 0, 0 };
+int green[3]  = { 0, 200, 0 };
+int blue[3]   = { 0, 0, 200 };
+int purple[3]   = { 200, 0, 200 };
+int yellow[3] = { 255, 255, 0 };
+int orange[3] = { 255, 204, 0 };
 
 int lightColour[3];
 int startColour[3];
@@ -59,6 +62,9 @@ int endColour[3];
 int changeTimer;
 int timeToChange;
 boolean changingColour = false;
+boolean pulse1;
+boolean firstColourPulse;
+int colourID;
 // Set initial color
 
 
@@ -70,7 +76,7 @@ void setup() {
   pixels.begin(); // initialize the NeoPixel library.
   motionLevel = 0;
   RFIDid = 0;
-  changeColour(black, blue, 25);
+  changeColour(black, blue, 50);
 }
 
 void loop() {
