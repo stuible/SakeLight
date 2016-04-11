@@ -20,11 +20,6 @@ void drawUI() {
   text("Sakenomi", paddingLeft, height / 12);
   textSize(24);
   text("by DolphinTech", paddingLeft, height / 12 + 30);
-  //textFont(arial);
-  //text("飲み酒", paddingLeft, height / 12);
-  //textFont(neueThin48);
-  //textSize(24);
-  //text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message
   text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + " on " + monthString + " " + day + ", " + year() + ".", width / 2, 50);
@@ -56,6 +51,9 @@ void drawUI() {
   //LABELS
   text("MOTION", width / 4, height / 2);
   text("VOLUME", width / 2, height - height / 5);
+  
+  //COLORMAP
+  image(colormap, width / 3, height / 4, height / 2, height / 2);
   
   noStroke();
   //MOTION BAR

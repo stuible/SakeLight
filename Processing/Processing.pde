@@ -49,6 +49,9 @@ PFont neueThin16;
 PFont neueMedium14;
 PFont arial;
 
+//IMAGES
+PImage colormap;
+
 //LAVA BACKGROUND
 //Source: http://www.openprocessing.org/sketch/173035
 color i1, i2, f1, f2, c1, c2;
@@ -80,7 +83,7 @@ void setup () {
   neueThin48 = loadFont("NeueThin48.vlw");
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
-  arial = createFont("Arial", 48);
+  colormap = loadImage("colormap.jpg");
   textSize(24);
   textAlign(LEFT);
   currentUser = Josh;
