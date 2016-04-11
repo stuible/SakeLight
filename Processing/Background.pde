@@ -1,5 +1,8 @@
 void drawBackground(String bg, String theme) {
   if (bg.equals("Lava") && theme.equals("Dark")) {
+    R = 150;
+    Rlow = 0;
+    textColor = 255;
     currentBackgroundIndicator = height - height / 4 + 10;
     //LAVA BACKGROUND
     //Source: http://www.openprocessing.org/sketch/173035
@@ -15,6 +18,9 @@ void drawBackground(String bg, String theme) {
     c2 = lerpColor(i2, f2, inter);
     setGradient(0, 0, width, height, c1, c2);
   } else if (bg.equals("Lava") && theme.equals("Light")) {
+    R = 255;
+    Rlow = 150;
+    textColor = 0;
     currentBackgroundIndicator = height - height / 4 + 10;
     //LAVA BACKGROUND
     //Source: http://www.openprocessing.org/sketch/173035

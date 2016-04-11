@@ -57,6 +57,7 @@ PImage colormap;
 color i1, i2, f1, f2, c1, c2;
 int i = 0;
 int R = 255;
+int Rlow = 0;
 int v = 150;
 
 //SMOKE BACKGROUND
@@ -77,8 +78,8 @@ float[] yvalues;
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
-  //fullScreen();
-  size(1024, 700);
+  fullScreen();
+  //size(1024, 700);
   surface.setResizable(true);
   neueThin48 = loadFont("NeueThin48.vlw");
   neueThin16 = loadFont("NeueThin16.vlw");
@@ -93,8 +94,8 @@ void setup () {
   joshUI = true;
   
   //LAVA
-  i1 = color(random(R), random(R), random(R));
-  i2 = color(random(R), random(R), random(R));
+  i1 = color(random(Rlow, R), random(Rlow, R), random(Rlow, R));
+  i2 = color(random(Rlow, R), random(Rlow, R), random(Rlow, R));
   c1 = i1;
   c2 = f2;
   f1 = i1;
@@ -180,7 +181,7 @@ void pickNewColor(){
     i1 = f1;
     i2 = f2;
     
-    f1 = color(random(R), random(R), random(R));
+    f1 = color(random(Rlow, R), random(Rlow, R), random(Rlow, R));
     f2 = lerpColor(i1, i2, 0.5);  
     
     i =0;

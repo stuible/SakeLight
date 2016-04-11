@@ -53,7 +53,7 @@ void drawUI() {
   text("VOLUME", width / 2, height - height / 5);
   
   //COLORMAP
-  image(colormap, width / 3, height / 4, height / 2, height / 2);
+  //image(colormap, width / 3, height / 4, height / 2, height / 2);
   
   noStroke();
   //MOTION BAR
