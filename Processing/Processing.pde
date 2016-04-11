@@ -25,7 +25,7 @@ User GaYan = new User("GaYan");
 User Macguire = new User("Macguire");
 User currentUser;
 char inBuffer; 
-boolean joshUI = false;
+boolean joshUI = true;
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
 int motionLevel; //the current motion level
@@ -93,9 +93,11 @@ void setup () {
 }
 
 void draw() {
+  drawBackground(currentUser.background, currentUser.theme);
   if (!joshUI) {
-    drawBackground(currentUser.background, currentUser.theme);
     drawUI();
+  } else {
+    joshUI();
   }
   
   setSerialValues();
@@ -189,4 +191,14 @@ void renderWave() {
     ellipseMode( CENTER );
     ellipse( x*xspacing,width/2+yvalues[x],yvalues[(x+x)%77],yvalues[(x+x+x)%77] );
   }
+}
+
+void joshUI() {
+  int day = day();
+  String monthString = null;
+  if (month() == 4) {
+    monthString = "April";
+  }
+  textFont(neueThin48);
+  text("Hello, " + currentUser.name + ". It is " + monthString + " " + day + ", " + year() + ".", width / 4, height / 2);
 }
