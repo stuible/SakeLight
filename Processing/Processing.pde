@@ -47,6 +47,10 @@ int i = 0;
 int R = 255;
 int v = 150;
 
+//SMOKE BACKGROUND
+float time = 0;
+float dy = 2, dt = 0.02;
+
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port

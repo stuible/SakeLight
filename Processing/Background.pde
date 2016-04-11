@@ -28,7 +28,20 @@ void drawBackground(String bg, String theme) {
     c2 = lerpColor(i2, f2, inter);
     setGradient(0, 0, width, height, c1, c2);
   } else if (bg.equals("Stars")) {
-    background(0, 255, 0);
+    time += dt;
+    background(255);
+    noStroke();
+    fill(255, 0, 0, 1);
+    for (float y=-50; y<height-50; y+=dy) {
+      beginShape();
+      vertex(0, height);
+      for (float x=0; x<=width; x+=1) {
+        float drift = noise(x/300, y/300, time)*500;
+        vertex(x, y+drift +350);
+      }
+      vertex(width, height);
+      endShape();
+    }
   } else if (bg.equals("Rain")) {
     background(0, 0, 255);
   }
