@@ -36,13 +36,13 @@ void updateAtmosphere(){
   else if(volumeAtmosphere < 100 ){
     //changeColour(endColour, red, 35);
     if(RFIDid == 0){
-    pulse(red, orange, constrain(map(volumeAtmosphere, 25, 60, 10, 3), 3, 10), 1);
+    pulse(red, orange, constrain(map(((volumeAtmosphere * 3) + motionAtmosphere) / 4, 25, 60, 10, 3), 3, 10), 1);
     }
     else if(RFIDid == 12){
-    pulse(red, orange, constrain(map(volumeAtmosphere, 25, 60, 10, 3), 3, 10), 2);
+    pulse(red, orange, constrain(map(((volumeAtmosphere * 3) + motionAtmosphere) / 4, 25, 60, 10, 3), 3, 10), 2);
     }
     else if(RFIDid == 2){
-    pulse(pink, orange, constrain(map(volumeAtmosphere, 25, 60, 10, 3), 3, 10), 3);
+    pulse(pink, orange, constrain(map(((volumeAtmosphere * 3) + motionAtmosphere) / 4, 25, 60, 10, 3), 3, 10), 3);
     }
   }
   
