@@ -56,13 +56,15 @@ void setup () {
 }
 
 void draw() {
-  if (currentUser.background.equals("Lava")) {
-    drawLava();
-  } else if (currentUser.background.equals("Stars")) {
-    drawStars();
-  } else if (currentUser.background.equals("Rain")) {
-    drawRain();
-  }
+  drawBackground(currentUser.background);
+  //if (currentUser.background.equals("Lava")) {
+    
+  //} else if (currentUser.background.equals("Stars")) {
+  //  drawStars();
+  //} else if (currentUser.background.equals("Rain")) {
+  //  drawRain();
+  //}
+  
   drawUI();
   setSerialValues();
   
@@ -101,5 +103,12 @@ void mouseClicked() {
   } else if (mouseY > height / 4 + 100 && mouseY < height / 4 + 130 && mouseX > 30 && mouseX < 120) {
     currentUser = Macguire;
     currentUserIndicator = height / 4 + 100;
+  }
+  
+  //THEME
+  if (mouseY > height / 2 + 10 && mouseY < height / 2 + 40 && mouseX > 30 && mouseX < 120) {
+    currentUser.theme = "light";
+  } else if (mouseY > height / 2 + 40 && mouseY < height / 2 + 70 && mouseX > 30 && mouseX < 120) {
+    currentUser.theme = "dark";
   }
 }
