@@ -27,7 +27,7 @@ User GaYan = new User("GaYan");
 User Macguire = new User("Macguire");
 User currentUser;
 char inBuffer; 
-boolean joshUI = false;
+boolean joshUI;
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
 int motionLevel1; //motion level from motion sensor 1
@@ -87,6 +87,7 @@ void setup () {
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 40;
   currentBackgroundIndicator = height - height / 4 + 10;
+  joshUI = true;
   
   //LAVA
   i1 = color(random(R), random(R), random(R));

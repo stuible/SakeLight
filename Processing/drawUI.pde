@@ -69,4 +69,10 @@ void drawUI() {
   line(width / 3, height - height / 4, width / 3 + height / 2, height - height / 4);
   fill(255, 100);
   ellipse(width / 3 + 60 + volumeLevel * 2, height - height / 4, 20, 20);
+  
+  //LINE FROM MOTION
+  line(width / 3, height - height / 4 - motionLevel1 * 3, width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel1 * 3);
+  
+  //LINE FROM VOLUME
+  line(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel1 * 3, width / 3 + 60 + volumeLevel * 2, height - height / 4);
 }
