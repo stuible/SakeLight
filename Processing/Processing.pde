@@ -51,6 +51,15 @@ int v = 150;
 float time = 0;
 float dy = 2, dt = 0.02;
 
+//WAVE BACKGROUND
+int xspacing = 8;   // How far apart should each horizontal location be spaced
+int w;              // Width of entire wave
+float theta = 0.0f;       // Start angle at 0
+float amplitude = 175.0f;  // Height of wave
+float period = 500.0f;    // How many pixels before the wave repeats
+float dx;                 // Value for incrementing X, to be calculated as a function of period and xspacing
+float[] yvalues; 
+
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
@@ -72,6 +81,11 @@ void setup () {
   c2 = f2;
   f1 = i1;
   f2 = i2;
+  
+  //WAVE BACKGROUND
+  w = width+16;
+  dx = (TWO_PI / period) * xspacing;
+  yvalues = new float[w/xspacing];
 }
 
 void draw() {
@@ -147,4 +161,26 @@ void setGradient(int x, int y, float w, float h, color c1, color c2 ) {
       line(x, i, x+w, i);
  }
  
+}
+
+void calcWave() {
+  // Increment theta (try different values for 'angular velocity' here
+  theta += 0.02;
+ 
+  // For every x value, calculate a y value with sine function
+  float x = theta;
+  for (int i = 0; i < yvalues.length; i++) {
+    yvalues[i] = sin(x)*amplitude;
+    x+=dx;
+  }
+}
+ 
+void renderWave() {
+  // A simple way to draw the wave with an ellipse at each location
+  for ( int x = 0; x < yvalues.length; x++ ) {
+    stroke( 255, x, 0, 5);
+    fill(255, 0 , 0, 1);
+    ellipseMode( CENTER );
+    ellipse( x*xspacing,width/2+yvalues[x],yvalues[(x+x)%77],yvalues[(x+x+x)%77] );
+  }
 }
