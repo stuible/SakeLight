@@ -40,6 +40,13 @@ PFont neueThin48;
 PFont neueThin16;
 PFont neueMedium14;
 
+//LAVA
+color i1, i2, f1, f2, c1, c2;
+
+int i =0;
+int R = 255;
+int v = 150;
+
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
@@ -53,6 +60,14 @@ void setup () {
   currentUserIndicator = height / 4 + 10;
   currentThemeIndicator = height / 2 + 40;
   currentBackgroundIndicator = height - height / 4 + 10;
+  
+  //LAVA
+  i1 = color(random(R), random(R), random(R));
+  i2 = color(random(R), random(R), random(R));
+  c1 = i1;
+  c2 = f2;
+  f1 = i1;
+  f2 = i2;
 }
 
 void draw() {
@@ -106,4 +121,26 @@ void mouseClicked() {
     currentUser.theme = "Dark";
     currentThemeIndicator = height / 2 + 40;
   }
+}
+
+void pickNewColor(){
+    
+    i1 = f1;
+    i2 = f2;
+    
+    f1 = color(random(R), random(R), random(R));
+    f2 = lerpColor(i1, i2, 0.5);  
+    
+    i =0;
+}
+
+void setGradient(int x, int y, float w, float h, color c1, color c2 ) {
+ 
+ for (int i = y; i <= y+h; i++) {
+      float inter = map(i, y, y+h, 0, 1);
+      color c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x+w, i);
+ }
+ 
 }
