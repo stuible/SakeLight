@@ -43,7 +43,8 @@ void drawBackground(String bg, String theme) {
       endShape();
     }
   } else if (bg.equals("Rain")) {
-    fill(255,10);
+    background(255, 50);
+    fill(255,1);
     rect(0,0,width,height);
     calcWave();
     renderWave();
