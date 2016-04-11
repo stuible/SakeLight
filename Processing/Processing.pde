@@ -31,8 +31,7 @@ char inBuffer;
 boolean joshUI;
 boolean RFID; //i don't think we use this at all
 int volumeLevel; //the current volume level
-int motionLevel1; //motion level from motion sensor 1
-int motionLevel2; //motion level from motion sensor 2
+int motionLevel; //motion level from motion sensor 1
 int motionAtmosphere;
 int volumeAtmosphere;
 int currentUserIndicator; //y-value for current user indicator
@@ -125,7 +124,7 @@ void setup () {
 
 void draw() {
   //TESTING
-  motionLevel1 = (int) random(80, 85);
+  motionLevel = (int) random(80, 85);
   volumeLevel = (int) random(80, 85);
   
   //FOR DATE

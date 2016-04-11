@@ -62,12 +62,12 @@ void drawUI() {
   line(width / 3, height - height / 4, width / 3 + height / 2, height - height / 4);
   
   //LINE FROM MOTION
-  line(width / 3, height - height / 4 - motionLevel1 * 3, width / 3 + 60 + volumeLevel * 2 + 20, height - height / 4 - motionLevel1 * 3);
+  line(width / 3, height - height / 4 - motionLevel * 3, width / 3 + 60 + volumeLevel * 2 + 20, height - height / 4 - motionLevel * 3);
   
   //LINE FROM VOLUME
-  line(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel1 * 3 - 20, width / 3 + 60 + volumeLevel * 2, height - height / 4);
+  line(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel * 3 - 20, width / 3 + 60 + volumeLevel * 2, height - height / 4);
   
   noStroke();
   fill(textColor, 50);
-  ellipse(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel1 * 3, 20, 20);
+  ellipse(width / 3 + 60 + volumeLevel * 2, height - height / 4 - motionLevel * 3, 20, 20);
 }
