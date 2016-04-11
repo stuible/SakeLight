@@ -20,6 +20,7 @@ String val;     // Data received from the serial port
 String myString = null;
 String background; //the currently chosen background
 User Josh = new User("Josh");
+User Rina = new User("Rina");
 User Macguire = new User("Macguire");
 User currentUser;
 char inBuffer; 
@@ -41,7 +42,8 @@ PFont neueMedium14;
 void setup () {
   String portName = Serial.list()[1]; //set port
   myPort = new Serial(this, portName, 9600); //instantiate port
-  size(1024, 768);
+  size(1024, 700);
+  surface.setResizable(true);
   neueThin48 = loadFont("NeueThin48.vlw");
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
@@ -83,5 +85,14 @@ void mouseClicked() {
   } else if (mouseY > height - height / 4 + 70 && mouseY < height - height / 4 + 100 && mouseX > 30 && mouseX < 120) {
     currentUser.background = "Rain";
     currentBackgroundIndicator = height - height / 4 + 70;
+  }
+  
+  //CURRENT USER
+  if (mouseY > height / 4 + 10 && mouseY < height / 4 + 40 && mouseX > 30 && mouseX < 120) {
+    currentUser = Josh;
+    currentUserIndicator = height / 4 + 10;
+  } else if (mouseY > height / 4 + 40 && mouseY < height / 4 + 70 && mouseX > 30 && mouseX < 120) {
+    currentUser = Rina;
+    currentUserIndicator = height / 4 + 40;
   }
 }
