@@ -196,6 +196,7 @@ void renderWave() {
 }
 
 void joshUI() {
+  noCursor();
   textAlign(CENTER);
   int day = day();
   String monthString = null;

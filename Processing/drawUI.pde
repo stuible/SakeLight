@@ -2,6 +2,7 @@ color textColor = color(255);
 
 void drawUI() {
   textAlign(LEFT);
+  cursor();
   
   //INDICATORS
   fill(0, 0, 255, 40);
