@@ -17,8 +17,13 @@ void drawUI() {
   
   //Title
   textFont(neueThin48);
-  text("Apple Lantern", paddingLeft, height / 12);
+  text("Sakenomi", paddingLeft, height / 12);
   textSize(24);
+  text("by DolphinTech", paddingLeft, height / 12 + 30);
+  //textFont(arial);
+  //text("飲み酒", paddingLeft, height / 12);
+  //textFont(neueThin48);
+  //textSize(24);
   //text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message

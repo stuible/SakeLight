@@ -40,6 +40,7 @@ color green = color(0, 200, 0);
 PFont neueThin48;
 PFont neueThin16;
 PFont neueMedium14;
+PFont arial;
 
 //LAVA BACKGROUND
 //Source: http://www.openprocessing.org/sketch/173035
@@ -73,6 +74,7 @@ void setup () {
   neueThin48 = loadFont("NeueThin48.vlw");
   neueThin16 = loadFont("NeueThin16.vlw");
   neueMedium14 = loadFont("NeueMedium14.vlw");
+  arial = createFont("Arial", 48);
   textSize(24);
   textAlign(LEFT);
   currentUser = Josh;
@@ -208,6 +210,8 @@ void joshUI() {
   minute = minute();
   if (minute() < 10) {
     minuteString = "0" + minute;
+  } else {
+    minuteString = "" + minute;
   }
   textFont(neueThin48);
   fill(255);
