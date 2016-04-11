@@ -7,9 +7,9 @@ void drawUI() {
   
   //Title
   textFont(neueThin48);
-  text("SakeLight", paddingLeft, height / 12);
+  text("Apple Lantern", paddingLeft, height / 12);
   textSize(24);
-  text("by DolphinTech", paddingLeft, height / 12 + 30);
+  //text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message
   text("Welcome, " + currentUser.name + ".", width / 2, 50);

@@ -200,5 +200,16 @@ void joshUI() {
     monthString = "April";
   }
   textFont(neueThin48);
+  fill(255);
   text("Hello, " + currentUser.name + ". It is " + monthString + " " + day + ", " + year() + ".", width / 4, height / 2);
+}
+
+void keyPressed() {
+  if (key == 'a') {
+    if (joshUI) {
+      joshUI = false;
+    } else if (!joshUI) {
+      joshUI = true;
+    }
+  }
 }
