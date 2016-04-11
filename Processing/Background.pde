@@ -28,6 +28,7 @@ void drawBackground(String bg, String theme) {
     c2 = lerpColor(i2, f2, inter);
     setGradient(0, 0, width, height, c1, c2);
   } else if (bg.equals("Stars")) {
+    textColor = color(0);
     time += dt;
     background(255);
     noStroke();

@@ -1,13 +1,15 @@
+color textColor = color(255);
+
 void drawUI() {
-  fill(255);
+  fill(textColor);
   stroke(1);
   int paddingLeft = 30;
   
   //Title
   textFont(neueThin48);
-  text("SakeLight", 10, height / 12);
+  text("SakeLight", paddingLeft, height / 12);
   textSize(24);
-  text("by DolphinTech", 10, height / 12 + 30);
+  text("by DolphinTech", paddingLeft, height / 12 + 30);
   
   //Welcome message
   text("Welcome, " + currentUser.name + ".", width / 2, 50);
@@ -16,9 +18,9 @@ void drawUI() {
   //HEADINGS
   textFont(neueMedium14);
   textSize(14);
-  text("CURRENT USER", 10, height / 4);
-  text("THEME", 10, height / 2);
-  text("BACKGROUND", 10, height - height / 4);
+  text("CURRENT USER", paddingLeft, height / 4);
+  text("THEME", paddingLeft, height / 2);
+  text("BACKGROUND", paddingLeft, height - height / 4);
   
   //USERS
   textFont(neueThin16);
