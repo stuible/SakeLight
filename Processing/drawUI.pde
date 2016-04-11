@@ -59,10 +59,10 @@ void drawUI() {
   
   noStroke();
   //MOTION BAR
-  fill(255, 0, 0);
-  rect(width / 3, height / 4, 50, height / 2);
-  fill(255);
-  rect(width / 3, height / 4, 50, height / 2 - motionLevel1 * 3);
+  stroke(255);
+  line(width / 3, height / 4, width / 3, height - height / 4);
+  fill(255, 100);
+  ellipse(width / 3, height - height / 4 - motionLevel1 * 3, 20, 20);
   
   //VOLUME BAR
   fill(255);
