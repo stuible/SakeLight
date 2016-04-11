@@ -200,12 +200,18 @@ void joshUI() {
   textAlign(CENTER);
   int day = day();
   String monthString = null;
+  int minute = minute();
+  String minuteString = null;
   if (month() == 4) {
     monthString = "April";
   }
+  minute = minute();
+  if (minute() < 10) {
+    minuteString = "0" + minute;
+  }
   textFont(neueThin48);
   fill(255);
-  text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minute() + " on " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
+  text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + " on " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
 }
 
 void keyPressed() {
