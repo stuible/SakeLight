@@ -203,7 +203,7 @@ void joshUI() {
   }
   textFont(neueThin48);
   fill(255);
-  text("Hello, " + currentUser.name + ". It is " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
+  text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minute() + " on " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
 }
 
 void keyPressed() {
