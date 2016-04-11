@@ -234,6 +234,8 @@ void joshUI() {
   textFont(neueThin48);
   fill(255);
   text("Hey, " + currentUser.name + ". It's " + hour() + ":" + minuteString + " on " + monthString + " " + day + ", " + year() + ".", width / 2, height / 2);
+  textFont(neueThin16);
+  text("[a] to show UI", width / 2, height - height / 4);
 }
 
 void keyPressed() {
