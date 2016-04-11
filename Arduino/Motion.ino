@@ -30,6 +30,6 @@ void checkMotion(){
 //    motionLevel = 0;
 //  }
 
-  sendSerial(motionLevel);
+  sendSerial(constrain(map(motionLevel, 0, 2000, 0, 350), 0, 350));
 }
 

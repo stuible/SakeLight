@@ -23,5 +23,5 @@ void checkSoundInput(){
    double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
    volumeLevel = map(peakToPeak, 0, 700, 0, 100);
 
-  sendSerial(volumeLevel);
+  sendSerial(constrain(map(volumeLevel, 0, 700, 0, 350), 0, 350));
 }
