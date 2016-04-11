@@ -23,6 +23,26 @@ void updateColour(){
   else {
     changingColour = false;
     changeTimer = 0;
+    if(pulse1){
+      pulse1 = false;
+    }
+    else {
+      pulse1 = true;
+    }
+  }
+}
+
+void pulse(int color1[3], int color2[3], int _timeToChange, int _colourID){
+  if(_colourID != colourID){
+    changeColour(endColour, color1, 35);
+    colourID = _colourID;
+  }
+  if (pulse1 && changeTimer == 0){
+    changeColour(color1, color2, _timeToChange);
+
+  }
+  if (!pulse1 && changeTimer == 0){
+    changeColour(color2, color1, _timeToChange);
   }
 }
 

@@ -16,12 +16,12 @@ void checkNFC(){
           RFIDid = RFIDid;
         }
         else {
-          RFIDid = 0;
+          //RFIDid = 0;
         }
       }
   } 
   else{
-    RFIDid = 0;
+    //RFIDid = 0;
   }
   sendSerial(RFIDid);
 }
