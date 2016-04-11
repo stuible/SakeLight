@@ -21,6 +21,7 @@ String myString = null;
 String background; //the currently chosen background
 User Josh = new User("Josh");
 User Rina = new User("Rina");
+User GaYan = new User("GaYan");
 User Macguire = new User("Macguire");
 User currentUser;
 char inBuffer; 
@@ -94,5 +95,8 @@ void mouseClicked() {
   } else if (mouseY > height / 4 + 40 && mouseY < height / 4 + 70 && mouseX > 30 && mouseX < 120) {
     currentUser = Rina;
     currentUserIndicator = height / 4 + 40;
+  } else if (mouseY > height / 4 + 70 && mouseY < height / 4 + 100 && mouseX > 30 && mouseX < 120) {
+    currentUser = GaYan;
+    currentUserIndicator = height / 4 + 70;
   }
 }
