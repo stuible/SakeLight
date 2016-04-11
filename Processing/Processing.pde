@@ -98,5 +98,8 @@ void mouseClicked() {
   } else if (mouseY > height / 4 + 70 && mouseY < height / 4 + 100 && mouseX > 30 && mouseX < 120) {
     currentUser = GaYan;
     currentUserIndicator = height / 4 + 70;
+  } else if (mouseY > height / 4 + 100 && mouseY < height / 4 + 130 && mouseX > 30 && mouseX < 120) {
+    currentUser = Macguire;
+    currentUserIndicator = height / 4 + 100;
   }
 }
