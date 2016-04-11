@@ -26,7 +26,7 @@ unsigned int sample;
 unsigned int peakToPeak = 0;   // peak-to-peak level
 
 //Motion Variables
-int pirPin1 = 3; //pin the motion sensor is connected to
+int pirPin1 = 2; //pin the motion sensor is connected to
 int pirPin2 = 4;
 int val; //voltage of the motion sensor pin
 int motionLevel; //current motion level
@@ -72,7 +72,7 @@ int colourID;
 void setup() {
   Serial.begin(9600); //begin serial communication at 9600 baud
   pinMode(13, OUTPUT);
-  nfc.begin(false); // begin NFC communication
+  nfc.begin(); // begin NFC communication
   pixels.begin(); // initialize the NeoPixel library.
   motionLevel = 0;
   RFIDid = 0;
@@ -93,5 +93,5 @@ void loop() {
 
   endSerial(); //prints the serial line so processing can recieve it
   
-  //delay(10); //delay for speed of checks/updates
+  delay(10); //delay for speed of checks/updates
 }

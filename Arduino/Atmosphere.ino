@@ -10,7 +10,7 @@ void updateAtmosphere(){
     for(int i = 0; i < averagesLength; i++){
       volumeAverage += volumeAverages[i];
       motionAverage += motionAverages[i];
-    }
+    } 
     volumeAverage = volumeAverage / averagesLength;
     motionAverage = motionAverage / averagesLength;
     atmosphereCounter = 0;
@@ -21,7 +21,7 @@ void updateAtmosphere(){
   motionAtmosphere = map(motionAverage, 0, 25, 0, 100);
   volumeAtmosphere = map(volumeAverage, 30, 50, 0, 100);
 
-  if(volumeAtmosphere > 46 ){
+  if(volumeAtmosphere > 40 ){
     //changeColour(endColour, red, 35);
     if(RFIDid == 0){
     pulse(red, orange, map(volumeAtmosphere, 46, 100, 10, 3), 1);
@@ -33,7 +33,7 @@ void updateAtmosphere(){
     pulse(red, orange, map(volumeAtmosphere, 46, 100, 10, 3), 1);
     }
   }
-  else {
+  else if (volumeAtmosphere > 40 ) {
     //changeColour(endColour, blue, 35);
     if(RFIDid == 0){
     pulse(blue, green, 60, 2);
